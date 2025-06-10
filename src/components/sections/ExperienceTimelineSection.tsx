@@ -18,7 +18,7 @@ const experiences = [
       "Focusing on leveraging cutting-edge technologies, including AI and full-stack frameworks, to solve real-world problems and enhance user experiences.",
       "Managing project lifecycles from ideation to deployment, ensuring high-quality deliverables and strategic alignment with business goals."
     ],
-    imageUrl: "/image/company-logos/eswarathas-innovations-logo.png",
+    imageUrl: "/images/company-logos/EI-logo.jpeg",
     imageHint: "company logo",
   },
   {
@@ -30,7 +30,7 @@ const experiences = [
       "Collaborated with a research team to investigate the reliability of heart rate variability (HRV) as an indicator of stress.",
       "Conducted data analysis and created visualizations to interpret physiological response patterns.",
     ],
-    imageUrl: "/image/company-logos/uofg-research-logo.png",
+    imageUrl: "/images/company-logos/RA.png",
     imageHint: "university logo",
   },
   {
@@ -42,7 +42,7 @@ const experiences = [
       "Designed and developed full-stack applications for clients, including a platform enabling hundreds of students to prepare for exams like the MCAT and LSAT.",
       "Built scalable software solutions using Next.js and React, ensuring responsive, user-friendly designs with Tailwind CSS.",
     ],
-    imageUrl: "/image/company-logos/engineering-ambition-logo.png",
+    imageUrl: "/images/company-logos/eng_ambition_logo.jpeg",
     imageHint: "company logo",
   },
 ];
