@@ -25,17 +25,17 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between">
           {/* Text Content - Left on Large Screens, Bottom on Mobile */}
           <div className="max-w-3xl mx-auto lg:mx-0 order-2 lg:order-1 flex flex-col items-center lg:items-start lg:mr-16">
-            <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-4 lg:text-left">
+            <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 text-center lg:text-left">
               Sriharish Eswarathas
             </h1>
-            <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-semibold text-primary mb-8 lg:text-left">
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 text-center lg:text-left">
               Software Engineer
             </h2>
-            <div className="min-h-[2.5em] mb-10 w-full text-center lg:text-left">
+            <div className="min-h-[2.5em] mb-8 w-full text-center lg:text-left">
               <TypingAnimation text="Building the future." delayBeforeStart={500} />
             </div>
-            <div className="space-x-4 flex flex-row justify-center lg:justify-start">
-              <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300">
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto">
+              <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300 w-full sm:w-auto">
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <FileText className="mr-2 h-5 w-5" />
                   View Resume/CV
@@ -44,7 +44,7 @@ export default function HeroSection() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary text-primary hover:bg-primary/10 hover:text-accent transition-colors duration-300"
+                className="border-primary text-primary hover:bg-primary/10 hover:text-accent transition-colors duration-300 w-full sm:w-auto"
                 onClick={handleScrollToAbout}
               >
                 <ArrowDown className="mr-2 h-5 w-5" />
