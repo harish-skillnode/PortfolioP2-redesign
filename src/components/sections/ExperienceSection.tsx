@@ -18,8 +18,8 @@ const projectsData: Project[] = [
     name: "Neural Network Image Recognition",
     description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
-    imageUrl: "https://placehold.co/400x300/FFFFFF/FFFFFF.png", 
-    imageHint: "generic network icon", 
+    imageUrl: "/images/project-logos/imagerec.png",
+    imageHint: "image recognition icon",
     githubUrl: "https://github.com/harishe182",
   },
   {
