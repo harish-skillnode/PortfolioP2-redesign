@@ -3,75 +3,75 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* Removed font-family: Arial, Helvetica, sans-serif; to allow Tailwind font-body to take precedence */
 }
 
 @layer base {
   :root {
-    --background: 220 5% 7%; /* Near-black #121214 */
+    --background: 240 6% 10%; /* Near-black, like zinc-900 */
     --foreground: 0 0% 98%; /* Light Gray/White */
 
-    --card: 220 5% 10%; /* Slightly lighter than background */
+    --card: 240 5% 13%; /* Slightly lighter than background, between zinc-900 and zinc-800 */
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 5% 5%; /* Darker for popovers */
+    --popover: 240 6% 8%; /* Darker for popovers */
     --popover-foreground: 0 0% 98%;
 
-    --primary: 247 38% 58%; /* Deep Indigo #483D8B */
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 98%; /* Light Gray/White (was Deep Indigo) */
+    --primary-foreground: 240 6% 10%; /* Dark Text (was Light Gray/White) */
 
-    --secondary: 220 5% 15%; /* Dark gray for secondary elements */
+    --secondary: 240 5% 17%; /* Dark gray, like zinc-800 */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 5% 20%;
+    --muted: 240 5% 20%;
     --muted-foreground: 0 0% 60%; /* Lighter muted text */
 
-    --accent: 276 100% 50%; /* Electric Violet #8F00FF */
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 90%; /* Off-white/Light Gray (was Electric Violet) */
+    --accent-foreground: 240 6% 10%; /* Dark Text (was Light Gray/White) */
 
     --destructive: 0 72% 51%; /* Adjusted for dark theme */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 5% 20%; /* Darker border */
-    --input: 220 5% 12%; /* Darker input background */
-    --ring: 276 100% 60%; /* Brighter accent for ring */
+    --border: 240 5% 20%; /* Darker border */
+    --input: 240 5% 15%; /* Darker input background */
+    --ring: 0 0% 80%; /* Light Gray for ring (was Brighter accent) */
 
-    --chart-1: 247 38% 68%;
-    --chart-2: 276 100% 60%;
-    --chart-3: 220 50% 70%;
-    --chart-4: 210 40% 65%;
-    --chart-5: 200 30% 60%;
+    --chart-1: 0 0% 85%;
+    --chart-2: 0 0% 75%;
+    --chart-3: 0 0% 65%;
+    --chart-4: 0 0% 55%;
+    --chart-5: 0 0% 45%;
 
     --radius: 0.5rem;
 
-    /* Specific for glass/carbon theme */
-    --header-background: 220 5% 10% / 0.7; /* Semi-transparent dark */
-    --footer-background: 220 5% 5% / 0.8;
+    /* Specific for glass/carbon theme, updated for zinc */
+    --header-background: 240 5% 17% / 0.7; /* Semi-transparent zinc-800 like */
+    --footer-background: 240 5% 17% / 0.8; /* Semi-transparent zinc-800 like */
   }
 
   .dark {
-    --background: 220 5% 7%;
+    --background: 240 6% 10%;
     --foreground: 0 0% 98%;
-    --card: 220 5% 10%;
+    --card: 240 5% 13%;
     --card-foreground: 0 0% 98%;
-    --popover: 220 5% 5%;
+    --popover: 240 6% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 247 38% 58%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 220 5% 15%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 6% 10%;
+    --secondary: 240 5% 17%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 220 5% 20%;
+    --muted: 240 5% 20%;
     --muted-foreground: 0 0% 60%;
-    --accent: 276 100% 50%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 240 6% 10%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 5% 20%;
-    --input: 220 5% 12%;
-    --ring: 276 100% 60%;
+    --border: 240 5% 20%;
+    --input: 240 5% 15%;
+    --ring: 0 0% 80%;
     
-    --header-background: 220 5% 10% / 0.7;
-    --footer-background: 220 5% 5% / 0.8;
+    --header-background: 240 5% 17% / 0.7;
+    --footer-background: 240 5% 17% / 0.8;
   }
 }
 
@@ -80,11 +80,10 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-gradient-to-br from-[#0A0A0A] to-[#1E1E1E] text-foreground;
-    /* Lead black to lead grey for carbon fiber aesthetic */
+    @apply bg-background text-foreground; /* Solid base background */
   }
   /* Custom glow effect for icons */
   .icon-glow {
-    filter: drop-shadow(0 0 5px hsl(var(--accent)));
+    filter: drop-shadow(0 0 5px hsl(var(--accent))); /* Glow will now be light gray/white */
   }
 }
