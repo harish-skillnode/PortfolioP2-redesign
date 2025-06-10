@@ -1,17 +1,20 @@
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, HelpCircle } from "lucide-react"; // Added HelpCircle for fallback
+import type React from 'react';
 
 export interface Project {
   id: string;
   name: string;
   description: string;
   technologies: string[];
-  imageUrl: string;
+  imageUrl?: string; // Optional
   imageHint?: string;
+  icon?: React.ElementType; // Added icon property
   githubUrl?: string;
   liveDemoUrl?: string;
 }
@@ -21,17 +24,29 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const IconComponent = project.icon; // Assign to a capitalized variable for JSX rendering
+
   return (
     <Card className="flex flex-col h-full overflow-hidden bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-glow-accent transition-shadow duration-300 border-primary/30">
       <div className="relative w-full h-48 md:h-56">
-        <Image
-          src={project.imageUrl}
-          alt={project.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-          data-ai-hint={project.imageHint || "technology project"}
-        />
+        {project.imageUrl ? (
+          <Image
+            src={project.imageUrl}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+            data-ai-hint={project.imageHint || "technology project"}
+          />
+        ) : IconComponent ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-accent/5 p-4">
+            <IconComponent className="w-24 h-24 text-accent" />
+          </div>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-muted/20 p-4">
+            <HelpCircle className="w-20 h-20 text-muted-foreground" />
+          </div>
+        )}
       </div>
       <CardHeader>
         <CardTitle className="font-headline text-2xl text-accent">{project.name}</CardTitle>

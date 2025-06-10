@@ -1,6 +1,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
+import { MessageSquareText } from "lucide-react"; // Import chosen icon
 
 // Updated to only include projects
 const projectsData: Project[] = [
@@ -9,7 +10,7 @@ const projectsData: Project[] = [
     name: "Skin-Sync: AI-Driven Skincare App",
     description: "Developed 'Dermie', an AI chatbot integrated with Google Gemini API, trained on dermatologist research to provide personalized skincare advice and guidance in an engaging manner.",
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
-    imageUrl: "/images/project-logos/skin-symc.png",
+    imageUrl: "/images/project-logos/skin-sync.png",
     imageHint: "AI chatbot interface",
     githubUrl: "https://github.com/harishe182",
   },
@@ -18,8 +19,8 @@ const projectsData: Project[] = [
     name: "Neural Network Image Recognition",
     description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
-    imageUrl: "/images/project-logos/imagerec.png",
-    imageHint: "image recognition icon",
+    imageUrl: "/images/project-logos/imagerec.png", 
+    imageHint: "image recognition icon", 
     githubUrl: "https://github.com/harishe182",
   },
   {
@@ -27,8 +28,7 @@ const projectsData: Project[] = [
     name: "Sentimental Text Analysis",
     description: "This project involves a sentiment analysis tool built using Python. It utilizes the TextBlob library to evaluate and categorize text sentiment. The tool provides descriptive feedback based on the polarity of the input text, classifying sentiments into categories such as \"Very Positive,\" \"Slightly Positive,\" \"Neutral,\" \"Slightly Negative,\" and \"Very Negative.\" The aim is to offer insightful analysis of textual data to gauge emotional tone and sentiment.",
     technologies: ["Python", "TextBlob", "AI"],
-    imageUrl: "https://placehold.co/400x300/FFFFFF/FFFFFF.png", // Generic white placeholder
-    imageHint: "generic analysis icon", // Hint for a white/light generic icon
+    icon: MessageSquareText, // Use the icon component here
     githubUrl: "https://github.com/harishe182",
   },
 ];
