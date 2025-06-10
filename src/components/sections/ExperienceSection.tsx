@@ -12,14 +12,6 @@ const experiencesAndProjects: Project[] = [
     imageHint: "research data analysis",
   },
   {
-    id: "founder-skin-sync",
-    name: "Founder - Skin-Sync",
-    description: "Led the development (May 2024 - Aug 2024) of an AI-powered skincare app for diagnosing skin types and concerns. Integrated specialized AI for tailored routines, improving user accessibility and engagement.",
-    technologies: ["AI", "React", "Next.js", "Flask", "Python", "Google Gemini API"],
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "skincare app interface",
-  },
-  {
     id: "software-developer-eng-ambition",
     name: "Software Developer - Engineering Ambition",
     description: "Designed and developed full-stack applications (Feb 2024 - Apr 2024), including a platform for MCAT/LSAT exam preparation. Built scalable solutions using Next.js and React with Tailwind CSS.",
@@ -34,7 +26,7 @@ const experiencesAndProjects: Project[] = [
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "AI chatbot interface",
-    githubUrl: "https://github.com/harishe182", // Generic placeholder
+    githubUrl: "https://github.com/harishe182", 
   },
   {
     id: "project-nn-image-recognition",
@@ -43,15 +35,7 @@ const experiencesAndProjects: Project[] = [
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "neural network diagram",
-    githubUrl: "https://github.com/harishe182", // Generic placeholder
-  },
-  {
-    id: "volunteer-cbs",
-    name: "Marketing Team Member - Canadian Blood Service",
-    description: "Designed digital assets and marketing materials (Sept 2021 - Sept 2022), showcasing creativity in tools like Adobe Photoshop. Increased donor numbers by 50% using data-driven strategies.",
-    technologies: ["Marketing", "Adobe Photoshop", "Community Engagement", "Data Analysis"],
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "marketing campaign",
+    githubUrl: "https://github.com/harishe182", 
   },
 ];
 

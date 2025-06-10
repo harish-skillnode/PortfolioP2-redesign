@@ -40,7 +40,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <CardContent className="flex-grow">
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="bg-primary/20 text-primary-foreground">
+            <Badge key={tech} className="bg-accent text-accent-foreground">
               {tech}
             </Badge>
           ))}
