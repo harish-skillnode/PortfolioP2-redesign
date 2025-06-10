@@ -8,7 +8,8 @@ interface ExperienceTimelineCardProps {
   company: string;
   location: string;
   descriptionPoints: string[];
-  align: "left" | "right";
+  // align prop is no longer used, remove if not needed elsewhere
+  // align?: "left" | "right"; 
 }
 
 export default function ExperienceTimelineCard({
@@ -17,13 +18,12 @@ export default function ExperienceTimelineCard({
   company,
   location,
   descriptionPoints,
-  align,
 }: ExperienceTimelineCardProps) {
-  const cardAlignmentClass = align === "left" ? "md:mr-auto" : "md:ml-auto";
-  const titleColor = "text-accent"; // Using accent for title consistency
+  // const cardAlignmentClass = align === "left" ? "md:mr-auto" : "md:ml-auto"; // No longer needed
+  const titleColor = "text-accent"; 
 
   return (
-    <Card className={`w-full max-w-md bg-card/80 backdrop-blur-sm shadow-lg border-primary/30 ${cardAlignmentClass}`}>
+    <Card className={`w-full bg-card/80 backdrop-blur-sm shadow-lg border-primary/30 flex flex-col h-full`}> {/* Added flex flex-col h-full */}
       <CardHeader>
         <div className="flex justify-between items-start">
           <div>
@@ -40,7 +40,7 @@ export default function ExperienceTimelineCard({
           {location}
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-grow"> {/* Added flex-grow */}
         <ul className="list-disc pl-5 space-y-1 text-foreground/80 text-sm">
           {descriptionPoints.map((point, index) => (
             <li key={index}>{point}</li>
