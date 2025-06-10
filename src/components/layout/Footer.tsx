@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-gradient-to-b from-zinc-800 to-zinc-900 mt-auto">
+    <footer className="border-t border-border bg-background mt-auto">
       <div className="container mx-auto px-4 md:px-8 2xl:px-0">
         {/* Footer Top */}
         <div className="py-20 lg:py-25">
@@ -62,74 +62,6 @@ export default function Footer() {
                 >
                   <FaGithub size={30} />
                 </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-auto flex lg:justify-end" 
-            >
-              <div className="flex flex-col">
-                <h4 className="mb-9 text-xl font-medium text-foreground text-left lg:text-right">
-                  Quick Links
-                </h4>
-                <ul className="text-left lg:text-right">
-                  <li>
-                    <Link
-                      href="#hero"
-                      className="mb-3 inline-block text-base text-foreground/80 hover:text-accent transition-colors"
-                    >
-                      Home
-                    </Link>
-                  </li>
-                   <li>
-                    <Link
-                      href="#about"
-                      className="mb-3 inline-block text-base text-foreground/80 hover:text-accent transition-colors"
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href="/resume/Sriharish_Eswarathas_Resume_3.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mb-3 inline-block text-base text-foreground/80 hover:text-accent transition-colors"
-                    >
-                      CV/Resume
-                    </a>
-                  </li>
-                  <li>
-                    <Link
-                      href="#experience"
-                      className="mb-3 inline-block text-base text-foreground/80 hover:text-accent transition-colors"
-                    >
-                      Projects
-                    </Link>
-                  </li>
-                   <li>
-                    <Link
-                      href="#contact"
-                      className="mb-3 inline-block text-base text-foreground/80 hover:text-accent transition-colors"
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
               </div>
             </motion.div>
           </div>
