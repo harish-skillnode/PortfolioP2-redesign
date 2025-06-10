@@ -1,11 +1,22 @@
 
+"use client";
+
+import type React from 'react';
 import { Button } from "@/components/ui/button";
 import TypingAnimation from "@/components/ui/TypingAnimation";
-import Link from "next/link";
 import { ArrowDown, FileText } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroSection() {
+
+  const handleScrollToAbout = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center py-20 px-4 bg-gradient-to-t from-zinc-900 to-zinc-800 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-transparent to-background/50 backdrop-filter backdrop-blur-sm"></div>
@@ -30,18 +41,21 @@ export default function HeroSection() {
                   View Resume/CV
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 hover:text-accent transition-colors duration-300">
-                <Link href="#about">
-                  <ArrowDown className="mr-2 h-5 w-5" />
-                  Learn More
-                </Link>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-primary text-primary hover:bg-primary/10 hover:text-accent transition-colors duration-300"
+                onClick={handleScrollToAbout}
+              >
+                <ArrowDown className="mr-2 h-5 w-5" />
+                Learn More
               </Button>
             </div>
           </div>
 
           {/* GIF - Right on Large Screens, Top on Mobile, Hidden on screens smaller than lg */}
           <div 
-            className="mb-8 lg:mb-0 lg:ml-16 animate_left order-1 lg:order-2 hidden lg:block"
+            className="mb-8 lg:mb-0 lg:ml-16 order-1 lg:order-2 hidden lg:block"
           >
             <div className="w-[250px] h-[150px] md:w-[450px] md:h-[300px] mx-auto lg:mx-0">
               <Image 
