@@ -5,11 +5,12 @@ import { useState } from 'react';
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
-import ExperienceSection from "@/components/sections/ExperienceSection";
+import ExperienceTimelineSection from "@/components/sections/ExperienceTimelineSection"; // New import
+import ProjectsSection from "@/components/sections/ExperienceSection"; // Was ExperienceSection, now effectively ProjectsSection
 import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
-import { HomeIcon, User, Briefcase, Mail } from "lucide-react";
+import { HomeIcon, User, Briefcase, Mail, Lightbulb } from "lucide-react"; // Added Lightbulb
 
 
 export default function HomePage() { 
@@ -26,7 +27,8 @@ export default function HomePage() {
           </div>
         </div>
         <AboutSection />
-        <ExperienceSection />
+        <ExperienceTimelineSection /> 
+        <ProjectsSection />
       </main>
       <Dock>
         <DockIcon href="#hero">
@@ -35,8 +37,11 @@ export default function HomePage() {
         <DockIcon href="#about">
           <User className="h-6 w-6 text-primary" />
         </DockIcon>
-        <DockIcon href="#experience">
+        <DockIcon href="#experience"> {/* Points to ExperienceTimelineSection */}
           <Briefcase className="h-6 w-6 text-primary" />
+        </DockIcon>
+        <DockIcon href="#projects"> {/* New DockIcon for ProjectsSection */}
+          <Lightbulb className="h-6 w-6 text-primary" />
         </DockIcon>
         <DockIcon onClick={() => setIsContactDrawerOpen(true)}>
           <Mail className="h-6 w-6 text-primary" />

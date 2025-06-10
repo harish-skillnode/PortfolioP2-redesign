@@ -2,23 +2,8 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
 
-const experiencesAndProjects: Project[] = [
-  {
-    id: "research-assistant-uog",
-    name: "Research Assistant - University of Guelph",
-    description: "Collaborated with a research team (May 2025 - Aug 2025) to investigate heart rate variability (HRV) as a stress indicator. Conducted data analysis and created visualizations for physiological response patterns.",
-    technologies: ["Python", "R", "Data Analysis", "Data Visualization"],
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "research data analysis",
-  },
-  {
-    id: "software-developer-eng-ambition",
-    name: "Software Developer - Engineering Ambition",
-    description: "Designed and developed full-stack applications (Feb 2024 - Apr 2024), including a platform for MCAT/LSAT exam preparation. Built scalable solutions using Next.js and React with Tailwind CSS.",
-    technologies: ["Next.js", "React", "Tailwind CSS", "Full-Stack Development", "JavaScript", "TypeScript"],
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "web application dashboard",
-  },
+// Updated to only include projects
+const projectsData: Project[] = [
   {
     id: "project-skin-sync-ai",
     name: "Skin-Sync: AI-Driven Skincare App",
@@ -26,7 +11,7 @@ const experiencesAndProjects: Project[] = [
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "AI chatbot interface",
-    githubUrl: "https://github.com/harishe182", 
+    githubUrl: "https://github.com/harishe182",
   },
   {
     id: "project-nn-image-recognition",
@@ -35,15 +20,15 @@ const experiencesAndProjects: Project[] = [
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "neural network diagram",
-    githubUrl: "https://github.com/harishe182", 
+    githubUrl: "https://github.com/harishe182",
   },
 ];
 
-export default function ExperienceSection() {
+export default function ProjectsSection() {
   return (
-    <SectionWrapper id="experience" title="Experience & Projects" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
+    <SectionWrapper id="projects" title="Projects" className="bg-gradient-to-t from-zinc-800 to-zinc-900">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {experiencesAndProjects.map((item) => (
+        {projectsData.map((item) => (
           <ProjectCard key={item.id} project={item} />
         ))}
       </div>
