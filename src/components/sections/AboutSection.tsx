@@ -1,10 +1,16 @@
+
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 
-const skills = [
-  "React", "Next.js", "TypeScript", "Node.js", "Python", "Firebase", "GraphQL", "Tailwind CSS"
+const technicalSkills = [
+  // Programming Languages
+  "Java", "Python", "C", "C++", "HTML", "CSS", "JavaScript", "TypeScript", "R",
+  // Frameworks/Libraries
+  "React", "Next.js", "Tailwind CSS", "Flask", "Prisma ORM", "NumPy", "Pandas", "Matplotlib",
+  // Tools/Technologies
+  "GitHub", "Visual Studio Code", "PyCharm", "MySQL", "SQLite", "AWS", "Google Gemini API", "OAuth", "Docker"
 ];
 
 const values = [
@@ -13,7 +19,7 @@ const values = [
 
 export default function AboutSection() {
   return (
-    <SectionWrapper id="about" title="About Me" className="bg-background/70 backdrop-blur-sm">
+    <SectionWrapper id="about" title="About Me" className="bg-gradient-to-t from-zinc-800 to-zinc-900">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative group w-full max-w-md mx-auto aspect-square">
            <Image
@@ -33,9 +39,9 @@ export default function AboutSection() {
             </CardHeader>
             <CardContent>
               <p className="text-lg text-foreground/90 leading-relaxed">
-                Hello! I'm Sriharish, a passionate Software Engineer dedicated to crafting exceptional digital experiences. 
-                With a strong foundation in modern web technologies, I thrive on solving complex problems and turning innovative ideas into reality. 
-                My journey in tech is driven by a curiosity to learn and a commitment to excellence.
+                Hello! I'm Sriharish, a Computer Science student at the University of Guelph (expected 2027) with a minor in Mathematics and a current GPA of 4.0.
+                I'm passionate about leveraging technology to solve real-world problems, particularly in the realm of AI and full-stack development.
+                My journey is driven by a commitment to creating fast, functional, and visually engaging digital experiences.
               </p>
             </CardContent>
           </Card>
@@ -46,7 +52,7 @@ export default function AboutSection() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
-                {skills.map(skill => (
+                {technicalSkills.map(skill => (
                   <span key={skill} className="bg-primary/20 text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>

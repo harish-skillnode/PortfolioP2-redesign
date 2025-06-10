@@ -1,53 +1,66 @@
+
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
 
-const projects: Project[] = [
+const experiencesAndProjects: Project[] = [
   {
-    id: "1",
-    name: "E-commerce Platform",
-    description: "A full-stack e-commerce solution with features like product listings, cart management, user authentication, and payment integration. Built for scalability and performance.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
+    id: "research-assistant-uog",
+    name: "Research Assistant - University of Guelph",
+    description: "Collaborated with a research team (May 2025 - Aug 2025) to investigate heart rate variability (HRV) as a stress indicator. Conducted data analysis and created visualizations for physiological response patterns.",
+    technologies: ["Python", "R", "Data Analysis", "Data Visualization"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "online store",
-    githubUrl: "https://github.com",
-    liveDemoUrl: "https://example.com",
+    imageHint: "research data analysis",
   },
   {
-    id: "2",
-    name: "Project Management Tool",
-    description: "A collaborative tool for teams to manage projects, tasks, and deadlines. Features real-time updates and a user-friendly interface.",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Material UI"],
+    id: "founder-skin-sync",
+    name: "Founder - Skin-Sync",
+    description: "Led the development (May 2024 - Aug 2024) of an AI-powered skincare app for diagnosing skin types and concerns. Integrated specialized AI for tailored routines, improving user accessibility and engagement.",
+    technologies: ["AI", "React", "Next.js", "Flask", "Python", "Google Gemini API"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "dashboard interface",
-    githubUrl: "https://github.com",
+    imageHint: "skincare app interface",
   },
   {
-    id: "3",
-    name: "Personal Portfolio Website",
-    description: "This very portfolio website, designed to showcase skills and projects. Built with a focus on modern design and user experience.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    id: "software-developer-eng-ambition",
+    name: "Software Developer - Engineering Ambition",
+    description: "Designed and developed full-stack applications (Feb 2024 - Apr 2024), including a platform for MCAT/LSAT exam preparation. Built scalable solutions using Next.js and React with Tailwind CSS.",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Full-Stack Development", "JavaScript", "TypeScript"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "web design",
-    liveDemoUrl: "#",
+    imageHint: "web application dashboard",
   },
-   {
-    id: "4",
-    name: "AI Content Generator",
-    description: "A web application that leverages AI models to generate various types of content, such as blog posts, marketing copy, and creative stories. Includes user accounts and content management.",
-    technologies: ["Python (Flask/Django)", "OpenAI API", "React", "Firebase"],
+  {
+    id: "project-skin-sync-ai",
+    name: "Skin-Sync: AI-Driven Skincare App",
+    description: "Developed 'Dermie', an AI chatbot integrated with Google Gemini API, trained on dermatologist research to provide personalized skincare advice and guidance in an engaging manner.",
+    technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "artificial intelligence",
-    githubUrl: "https://github.com",
-    liveDemoUrl: "https://example.com",
+    imageHint: "AI chatbot interface",
+    githubUrl: "https://github.com/harishe182", // Generic placeholder
+  },
+  {
+    id: "project-nn-image-recognition",
+    name: "Neural Network Image Recognition",
+    description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
+    technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "neural network diagram",
+    githubUrl: "https://github.com/harishe182", // Generic placeholder
+  },
+  {
+    id: "volunteer-cbs",
+    name: "Marketing Team Member - Canadian Blood Service",
+    description: "Designed digital assets and marketing materials (Sept 2021 - Sept 2022), showcasing creativity in tools like Adobe Photoshop. Increased donor numbers by 50% using data-driven strategies.",
+    technologies: ["Marketing", "Adobe Photoshop", "Community Engagement", "Data Analysis"],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "marketing campaign",
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <SectionWrapper id="experience" title="Experience & Projects" className="bg-background/50 backdrop-blur-sm">
+    <SectionWrapper id="experience" title="Experience & Projects" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {experiencesAndProjects.map((item) => (
+          <ProjectCard key={item.id} project={item} />
         ))}
       </div>
     </SectionWrapper>
