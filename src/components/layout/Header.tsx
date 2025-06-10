@@ -2,6 +2,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // Added import for Image
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -22,8 +23,17 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-20">
-          <Link href="#hero" className="flex items-center space-x-2 text-4xl font-cursive font-bold text-primary hover:text-accent transition-colors">
-            <span>S.E</span>
+          <Link 
+            href="#hero" 
+            className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
+          >
+            <Image
+              src="/image/logo/site-logo.png" // Assuming this path and filename
+              alt="Site Logo"
+              width={100} // Adjust width as needed
+              height={40} // Adjust height as needed
+              priority // Good to add for LCP elements like a logo
+            />
           </Link>
         </div>
       </div>
