@@ -23,12 +23,12 @@ export default function AboutSection() {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative group w-full max-w-md mx-auto aspect-square">
            <Image
-            src="https://placehold.co/600x600.png"
-            alt="Sriharish Eswarathas"
+            src="/images/about-light-02.svg"
+            alt="Sriharish Eswarathas - Abstract Design"
             width={600}
             height={600}
-            className="rounded-lg shadow-xl object-cover group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint="professional portrait"
+            className="rounded-lg shadow-xl object-contain group-hover:scale-105 transition-transform duration-300"
+            data-ai-hint="abstract design"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-lg group-hover:opacity-0 transition-opacity duration-300"></div>
         </div>
