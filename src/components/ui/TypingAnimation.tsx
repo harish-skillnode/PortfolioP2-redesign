@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -5,45 +6,41 @@ import { useState, useEffect } from 'react';
 interface TypingAnimationProps {
   text: string;
   speed?: number;
-  delay?: number;
+  delayBeforeStart?: number; // Optional delay before typing starts
 }
 
-export default function TypingAnimation({ text, speed = 100, delay = 1000 }: TypingAnimationProps) {
+export default function TypingAnimation({ text, speed = 100, delayBeforeStart = 0 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    let typingTimeout: NodeJS.Timeout;
+    if (delayBeforeStart > 0 && !hasStarted) {
+      const startTimeout = setTimeout(() => {
+        setHasStarted(true);
+      }, delayBeforeStart);
+      return () => clearTimeout(startTimeout);
+    }
 
-    const handleTyping = () => {
-      const fullText = text;
-      const currentText = isDeleting
-        ? fullText.substring(0, displayedText.length - 1)
-        : fullText.substring(0, displayedText.length + 1);
+    if (delayBeforeStart === 0 && !hasStarted) {
+      setHasStarted(true); // Start immediately if no delay
+    }
 
-      setDisplayedText(currentText);
+    if (!hasStarted) {
+      return; // Don't start typing yet if still in delay phase
+    }
 
-      if (!isDeleting && currentText === fullText) {
-        typingTimeout = setTimeout(() => setIsDeleting(true), delay);
-      } else if (isDeleting && currentText === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1); // Not strictly necessary for single phrase, but good for multiple
-        typingTimeout = setTimeout(() => {}, 500); // Pause before re-typing
-      } else {
-        typingTimeout = setTimeout(handleTyping, isDeleting ? speed / 2 : speed);
-      }
-    };
-
-    typingTimeout = setTimeout(handleTyping, speed);
-
-    return () => clearTimeout(typingTimeout);
-  }, [displayedText, isDeleting, text, speed, delay, loopNum]);
+    if (displayedText.length < text.length) {
+      const typingTimeout = setTimeout(() => {
+        setDisplayedText(text.substring(0, displayedText.length + 1));
+      }, speed);
+      return () => clearTimeout(typingTimeout);
+    }
+  }, [displayedText, text, speed, delayBeforeStart, hasStarted]);
 
   return (
     <span className="font-mono text-lg md:text-xl text-muted-foreground">
       {displayedText}
-      <span className="animate-ping">|</span>
+      {displayedText.length === text.length ? <span className="animate-ping">|</span> : <span className="animate-ping">|</span>}
     </span>
   );
 }

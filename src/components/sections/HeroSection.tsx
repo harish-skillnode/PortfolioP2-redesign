@@ -32,7 +32,7 @@ export default function HeroSection() {
               Software Engineer
             </h2>
             <div className="min-h-[2.5em] mb-10 w-full text-center lg:text-left">
-              <TypingAnimation text="Building the future." />
+              <TypingAnimation text="Building the future." delayBeforeStart={500} />
             </div>
             <div className="space-x-4 flex flex-row justify-center lg:justify-start">
               <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300">
