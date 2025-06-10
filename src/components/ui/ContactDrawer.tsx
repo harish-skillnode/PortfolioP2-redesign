@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react'; // Added useCallback
 import { useForm, ValidationError } from '@formspree/react';
 import {
   Sheet,
@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Mail, Send, User, MessageSquare, CheckCircle } from "lucide-react"; // Added CheckCircle
+import { Mail, Send, User, MessageSquare, CheckCircle } from "lucide-react"; 
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactDrawerProps {
@@ -35,12 +35,11 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
         variant: "default",
       });
       setFormKey(Date.now()); // Reset form fields by changing the key
-      setTimeout(() => {
+      const timer = setTimeout(() => { // Assign to variable to clear
           onClose();
       }, 1500); // Close drawer after a delay
+      return () => clearTimeout(timer); // Cleanup timeout
     } else if (formspreeState.errors && formspreeState.errors.length > 0) {
-      // Check for general (non-field-specific) errors from Formspree
-      // Field-specific errors are handled by the <ValidationError> component
       const generalError = formspreeState.errors.find(err => !(err.field));
       if (generalError) {
          toast({
@@ -52,8 +51,14 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     }
   }, [formspreeState, toast, onClose]);
 
+  const handleSheetOpenChange = useCallback((openState: boolean) => {
+    if (!openState) {
+      onClose();
+    }
+  }, [onClose]);
+
   return (
-    <Sheet open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
+    <Sheet open={isOpen} onOpenChange={handleSheetOpenChange}>
       <SheetContent 
         side="bottom" 
         className="h-[85vh] md:h-[80vh] flex flex-col bg-card/95 backdrop-blur-lg shadow-xl border-t border-primary/30 rounded-t-lg"
@@ -66,14 +71,6 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
           </SheetDescription>
         </SheetHeader>
         <div className="flex-grow overflow-y-auto px-6 pb-6">
-          {/* Display success message inline before closing, optional */}
-          {/* {formspreeState.succeeded && (
-            <div className="flex flex-col items-center justify-center h-full">
-              <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-              <p className="text-xl text-foreground">Message Sent!</p>
-              <p className="text-muted-foreground">Thank you for reaching out.</p>
-            </div>
-          )} */}
           <form onSubmit={handleSubmit} key={formKey} className="space-y-6 pt-4">
             <div>
               <Label htmlFor="name-drawer" className="flex items-center mb-1 text-foreground/90">
