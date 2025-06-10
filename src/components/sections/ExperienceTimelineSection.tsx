@@ -17,7 +17,7 @@ const experiences = [
       "Collaborated with a research team to investigate the reliability of heart rate variability (HRV) as an indicator of stress.",
       "Conducted data analysis and created visualizations to interpret physiological response patterns.",
     ],
-    imageUrl: "/image/company-logos/RA.png",
+    imageUrl: "/images/company-logos/RA.png", // Corrected path and added closing quote
     imageHint: "university logo",
   },
   {
@@ -29,7 +29,7 @@ const experiences = [
       "Designed and developed full-stack applications for clients, including a platform enabling hundreds of students to prepare for exams like the MCAT and LSAT.",
       "Built scalable software solutions using Next.js and React, ensuring responsive, user-friendly designs with Tailwind CSS.",
     ],
-    imageUrl: "/image/company-logos/eng_ambition_logo.jpeg",
+    imageUrl: "/images/company-logos/eng_ambition_logo.jpeg",
     imageHint: "company logo",
   },
 ];
