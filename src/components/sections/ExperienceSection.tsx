@@ -1,7 +1,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
-import { MessageSquareText } from "lucide-react"; // Import chosen icon
+import { MessageSquareText, Bot, Brain } from "lucide-react"; // Import chosen icons
 
 // Updated to only include projects
 const projectsData: Project[] = [
@@ -10,8 +10,7 @@ const projectsData: Project[] = [
     name: "Skin-Sync: AI-Driven Skincare App",
     description: "Developed 'Dermie', an AI chatbot integrated with Google Gemini API, trained on dermatologist research to provide personalized skincare advice and guidance in an engaging manner.",
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
-    imageUrl: "/images/project-logos/skin-sync.png",
-    imageHint: "AI chatbot interface",
+    icon: Bot, // Use the Bot icon
     githubUrl: "https://github.com/harishe182",
   },
   {
@@ -19,8 +18,7 @@ const projectsData: Project[] = [
     name: "Neural Network Image Recognition",
     description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
-    imageUrl: "/images/project-logos/imagerec.png", 
-    imageHint: "image recognition icon", 
+    icon: Brain, // Use the Brain icon
     githubUrl: "https://github.com/harishe182",
   },
   {
