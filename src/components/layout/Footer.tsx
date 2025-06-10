@@ -1,7 +1,6 @@
 
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
@@ -29,16 +28,8 @@ export default function Footer() {
               viewport={{ once: true }}
               className="w-full md:w-1/2 lg:w-1/3"
             >
-              <Link href="#hero" className="relative inline-block mb-5">
-                {/* For dark mode, we'll use a light placeholder, and for light mode, a dark placeholder if distinct logos were intended */}
-                {/* As we use a dark theme primarily, one placeholder should suffice, adjust if needed */}
-                 <Image
-                  width={110}
-                  height={80}
-                  src="https://placehold.co/110x80.png" 
-                  alt="S.E Logo"
-                  data-ai-hint="logo monogram"
-                />
+              <Link href="#hero" className="inline-block mb-5 text-3xl font-cursive font-bold text-primary hover:text-accent transition-colors">
+                <span>S.E</span>
               </Link>
               <p className="mt-1 mb-10 text-foreground/80">
                 The path that leads to truth is a laborious one.
@@ -148,9 +139,6 @@ export default function Footer() {
         <div className="py-8 text-center text-sm text-foreground/70">
           <p>
             &copy; {new Date().getFullYear()} Sriharish Eswarathas. All rights reserved.
-          </p>
-           <p className="text-xs mt-1">
-            Inspired by Solid Template. Built with Next.js and Tailwind CSS.
           </p>
         </div>
       </div>
