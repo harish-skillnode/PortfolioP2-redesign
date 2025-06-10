@@ -9,19 +9,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const experiences = [
   {
-    date: "May 2024 - Present",
-    title: "Founder",
-    company: "Eswarathas Innovations",
-    location: "Greater Toronto Area, Canada · Remote",
-    descriptionPoints: [
-      "Leading the development of innovative software solutions tailored to meet dynamic market needs.",
-      "Focusing on leveraging cutting-edge technologies, including AI and full-stack frameworks, to solve real-world problems and enhance user experiences.",
-      "Managing project lifecycles from ideation to deployment, ensuring high-quality deliverables and strategic alignment with business goals."
-    ],
-    imageUrl: "/images/company-logos/EI-logo.jpeg",
-    imageHint: "company logo",
-  },
-  {
     date: "May 2025 - Aug 2025",
     title: "Research Assistant",
     company: "University of Guelph Research",
@@ -30,7 +17,7 @@ const experiences = [
       "Collaborated with a research team to investigate the reliability of heart rate variability (HRV) as an indicator of stress.",
       "Conducted data analysis and created visualizations to interpret physiological response patterns.",
     ],
-    imageUrl: "/images/company-logos/RA.png",
+    imageUrl: "/image/company-logos/RA.png",
     imageHint: "university logo",
   },
   {
@@ -42,7 +29,7 @@ const experiences = [
       "Designed and developed full-stack applications for clients, including a platform enabling hundreds of students to prepare for exams like the MCAT and LSAT.",
       "Built scalable software solutions using Next.js and React, ensuring responsive, user-friendly designs with Tailwind CSS.",
     ],
-    imageUrl: "/images/company-logos/eng_ambition_logo.jpeg",
+    imageUrl: "/image/company-logos/eng_ambition_logo.jpeg",
     imageHint: "company logo",
   },
 ];
@@ -61,6 +48,14 @@ export default function ExperienceTimelineSection() {
       prevIndex === 0 ? experiences.length - 1 : prevIndex - 1
     );
   };
+
+  if (experiences.length === 0) {
+    return (
+      <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
+        <p className="text-center text-foreground/80">No experiences to display at the moment.</p>
+      </SectionWrapper>
+    );
+  }
 
   return (
     <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">

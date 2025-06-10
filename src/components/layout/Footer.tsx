@@ -43,7 +43,7 @@ export default function Footer() {
               >
                 harisheswarathas@gmail.com
               </a>
-              <div className="flex gap-6 mt-6">
+              <div className="flex gap-6 mt-6 items-center">
                 <a
                   href="https://www.linkedin.com/in/sriharish-eswarathas-002023240/"
                   target="_blank"
@@ -63,6 +63,17 @@ export default function Footer() {
                   <FaGithub size={30} />
                 </a>
               </div>
+               <div className="mt-4">
+                 <a
+                  href="https://eswarathasinnovations.com" // Placeholder URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/70 hover:text-accent transition-colors"
+                  aria-label="Eswarathas Innovations Website"
+                >
+                  Eswarathas Innovations
+                </a>
+               </div>
             </motion.div>
           </div>
         </div>
