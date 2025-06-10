@@ -1,6 +1,5 @@
 
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
@@ -11,21 +10,7 @@ export default function Footer() {
         {/* Footer Top */}
         <div className="py-20 lg:py-25">
           <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.5 }}
-              viewport={{ once: true }}
+            <div
               className="w-full md:w-1/2 lg:w-1/3"
             >
               <Link href="#hero" className="inline-block mb-5 text-3xl font-cursive font-bold text-primary hover:text-accent transition-colors">
@@ -74,7 +59,7 @@ export default function Footer() {
                   Eswarathas Innovations
                 </a>
                </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
