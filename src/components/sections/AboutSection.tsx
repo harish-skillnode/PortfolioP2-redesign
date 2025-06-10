@@ -53,7 +53,7 @@ export default function AboutSection() {
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {technicalSkills.map(skill => (
-                  <span key={skill} className="bg-primary/20 text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                  <span key={skill} className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {skill}
                   </span>
                 ))}
