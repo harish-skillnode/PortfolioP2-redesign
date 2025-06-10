@@ -2,7 +2,6 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -27,13 +26,9 @@ export default function Header() {
             href="#hero" 
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
-            <Image
-              src="/header-logo.png" 
-              alt="Site Logo S.E Signature"
-              width={100} 
-              height={40} 
-              priority 
-            />
+            <span className="font-cursive text-4xl font-bold text-primary">
+              S.E
+            </span>
           </Link>
         </div>
       </div>
