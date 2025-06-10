@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState, useCallback } from 'react'; // Added useCallback
+import { useEffect, useState, useCallback } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import {
   Sheet,
@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Mail, Send, User, MessageSquare, CheckCircle } from "lucide-react"; 
+import { Mail, Send, User, MessageSquare } from "lucide-react"; 
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactDrawerProps {
@@ -26,20 +26,27 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
   const [formspreeState, handleSubmit] = useForm("xqazbeav");
   const { toast } = useToast();
   const [formKey, setFormKey] = useState(Date.now()); 
+  const [submissionSuccessHandled, setSubmissionSuccessHandled] = useState(false);
 
   useEffect(() => {
-    if (formspreeState.succeeded) {
+    if (formspreeState.succeeded && !submissionSuccessHandled) {
       toast({
         title: "Success!",
         description: "Your message has been sent. I'll get back to you soon.",
         variant: "default",
       });
       setFormKey(Date.now()); // Reset form fields by changing the key
-      const timer = setTimeout(() => { // Assign to variable to clear
+      setSubmissionSuccessHandled(true); // Mark success as handled to prevent loop
+
+      const timer = setTimeout(() => { 
           onClose();
       }, 1500); // Close drawer after a delay
-      return () => clearTimeout(timer); // Cleanup timeout
-    } else if (formspreeState.errors && formspreeState.errors.length > 0) {
+      return () => clearTimeout(timer); 
+    } else if (!formspreeState.succeeded && submissionSuccessHandled) {
+      // Reset handled state if form is no longer in succeeded state (e.g., ready for new submission)
+      setSubmissionSuccessHandled(false);
+    } else if (formspreeState.errors && formspreeState.errors.length > 0 && !submissionSuccessHandled) {
+      // Ensure error toast also doesn't loop if formspreeState.errors reference remains same while component re-renders
       const generalError = formspreeState.errors.find(err => !(err.field));
       if (generalError) {
          toast({
@@ -49,7 +56,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
         });
       }
     }
-  }, [formspreeState, toast, onClose]);
+  }, [formspreeState, toast, onClose, submissionSuccessHandled]);
 
   const handleSheetOpenChange = useCallback((openState: boolean) => {
     if (!openState) {
@@ -57,12 +64,16 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
     }
   }, [onClose]);
 
+  const handleOpenAutoFocus = useCallback((event: Event) => {
+    event.preventDefault();
+  }, []);
+
   return (
     <Sheet open={isOpen} onOpenChange={handleSheetOpenChange}>
       <SheetContent 
         side="bottom" 
         className="h-[85vh] md:h-[80vh] flex flex-col bg-card/95 backdrop-blur-lg shadow-xl border-t border-primary/30 rounded-t-lg"
-        onOpenAutoFocus={(e) => e.preventDefault()}
+        onOpenAutoFocus={handleOpenAutoFocus}
       >
         <SheetHeader className="text-left pt-6 px-6">
           <SheetTitle className="text-3xl font-headline text-accent">Let's Connect</SheetTitle>
