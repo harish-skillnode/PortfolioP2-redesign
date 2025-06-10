@@ -18,8 +18,8 @@ const experiences = [
       "Focusing on leveraging cutting-edge technologies, including AI and full-stack frameworks, to solve real-world problems and enhance user experiences.",
       "Managing project lifecycles from ideation to deployment, ensuring high-quality deliverables and strategic alignment with business goals."
     ],
-    imageUrl: "https://placehold.co/600x338.png", 
-    imageHint: "innovation abstract technology",
+    imageUrl: "/image/company-logos/eswarathas-innovations-logo.png",
+    imageHint: "company logo",
   },
   {
     date: "May 2025 - Aug 2025",
@@ -30,8 +30,8 @@ const experiences = [
       "Collaborated with a research team to investigate the reliability of heart rate variability (HRV) as an indicator of stress.",
       "Conducted data analysis and created visualizations to interpret physiological response patterns.",
     ],
-    imageUrl: "https://placehold.co/600x338.png",
-    imageHint: "research lab science",
+    imageUrl: "/image/company-logos/uofg-research-logo.png",
+    imageHint: "university logo",
   },
   {
     date: "Feb 2024 - Apr 2024",
@@ -42,8 +42,8 @@ const experiences = [
       "Designed and developed full-stack applications for clients, including a platform enabling hundreds of students to prepare for exams like the MCAT and LSAT.",
       "Built scalable software solutions using Next.js and React, ensuring responsive, user-friendly designs with Tailwind CSS.",
     ],
-    imageUrl: "https://placehold.co/600x338.png",
-    imageHint: "software development code",
+    imageUrl: "/image/company-logos/engineering-ambition-logo.png",
+    imageHint: "company logo",
   },
 ];
 
