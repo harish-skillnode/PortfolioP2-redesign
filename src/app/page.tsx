@@ -10,7 +10,7 @@ import ProjectsSection from "@/components/sections/ExperienceSection"; // Was Ex
 import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
-import { HomeIcon, User, Briefcase, Mail, Lightbulb } from "lucide-react"; // Added Lightbulb
+import { HomeIcon, User, Briefcase, Mail, Lightbulb, Linkedin, Github } from "lucide-react"; // Added Lightbulb, Linkedin, Github
 
 
 export default function HomePage() { 
@@ -42,6 +42,12 @@ export default function HomePage() {
         </DockIcon>
         <DockIcon href="#projects"> {/* New DockIcon for ProjectsSection */}
           <Lightbulb className="h-6 w-6 text-primary" />
+        </DockIcon>
+        <DockIcon href="https://www.linkedin.com/in/sriharish-eswarathas-002023240/">
+          <Linkedin className="h-6 w-6 text-primary" />
+        </DockIcon>
+        <DockIcon href="https://github.com/harishe182">
+          <Github className="h-6 w-6 text-primary" />
         </DockIcon>
         <DockIcon onClick={() => setIsContactDrawerOpen(true)}>
           <Mail className="h-6 w-6 text-primary" />

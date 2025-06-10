@@ -76,6 +76,7 @@ export interface DockIconProps {
   className?: string;
   children?: React.ReactNode;
   href?: string; // Added href for navigation
+  onClick?: () => void; // Allow custom onClick handlers too
   props?: PropsWithChildren;
 }
 
@@ -88,6 +89,7 @@ const DockIcon = ({
   className,
   children,
   href, // Use href for navigation
+  onClick,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -110,12 +112,18 @@ const DockIcon = ({
   });
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (href) {
+    if (onClick) {
+      onClick();
+    } else if (href) {
       e.preventDefault();
-      const targetId = href.startsWith("#") ? href.substring(1) : href;
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+      if (href.startsWith("http://") || href.startsWith("https://")) {
+        window.open(href, "_blank", "noopener,noreferrer");
+      } else if (href.startsWith("#")) {
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
@@ -131,9 +139,6 @@ const DockIcon = ({
       )}
       {...props}
     >
-      {/* Wrap children in a Link if href is present, or just render children */}
-      {/* This example assumes children are icons or simple elements. For complex children, adjust accordingly. */}
-      {/* The onClick handler on motion.div already handles navigation. */}
       {children}
     </motion.div>
   );
