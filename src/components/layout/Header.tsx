@@ -28,11 +28,11 @@ export default function Header() {
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
             <Image
-              src="/image/logo/site-logo.png" // Assuming this path and filename
+              src="/logo.png" 
               alt="Site Logo"
-              width={100} // Adjust width as needed
-              height={40} // Adjust height as needed
-              priority // Good to add for LCP elements like a logo
+              width={100} 
+              height={40} 
+              priority 
             />
           </Link>
         </div>
