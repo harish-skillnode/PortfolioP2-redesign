@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -5,6 +6,9 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "S.E",
   description: 'Portfolio of Sriharish Eswarathas, Software Engineer',
+  icons: {
+    icon: '/favicon.ico', // Explicitly point to public/favicon.ico
+  },
 };
 
 export default function RootLayout({

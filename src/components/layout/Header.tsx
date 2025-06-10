@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image'; // Added import for Image
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -28,8 +28,8 @@ export default function Header() {
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
             <Image
-              src="/.png" 
-              alt="Site Logo"
+              src="/header-logo.png" 
+              alt="Site Logo S.E Signature"
               width={100} 
               height={40} 
               priority 
