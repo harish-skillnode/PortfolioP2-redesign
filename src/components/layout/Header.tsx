@@ -28,7 +28,7 @@ export default function Header() {
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
             <Image
-              src="/logo.png" 
+              src="/.png" 
               alt="Site Logo"
               width={100} 
               height={40} 
