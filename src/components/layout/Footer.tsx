@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background mt-auto">
+    <footer className="border-t border-border bg-gradient-to-t from-background to-secondary mt-auto">
       <div className="container mx-auto px-4 md:px-8 2xl:px-0">
         {/* Footer Top */}
         <div className="py-20 lg:py-25">
