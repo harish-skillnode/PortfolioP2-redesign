@@ -6,18 +6,20 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
-import { HomeIcon, UserCircle, Briefcase, Mail } from "lucide-react"; // Corrected UserCircle import if that's the intended icon, or use User for a simpler one.
-// UserCircle is not standard in lucide-react, using User instead. If UserCircle is custom, ensure it's available.
-// Using User as a placeholder for UserCircle
-import { User } from "lucide-react";
+import { HomeIcon, User, Briefcase, Mail } from "lucide-react";
 
 
-export default function HomePage() { // Renamed component to avoid conflict with HomeIcon
+export default function HomePage() { 
   return (
     <>
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <div className="bg-zinc-800"> {/* Solid background for the HR's margin space */}
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <hr className="border-t border-zinc-700 shadow-lg shadow-black/30 my-4" />
+          </div>
+        </div>
         <AboutSection />
         <ExperienceSection />
         <ContactSection />
