@@ -12,6 +12,7 @@ const projectsData: Project[] = [
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
     icon: Bot, // Use the Bot icon
     githubUrl: "https://github.com/harishe182",
+    liveDemoUrl: "#", // Added placeholder for live demo
   },
   {
     id: "project-nn-image-recognition",
