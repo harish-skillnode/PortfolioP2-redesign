@@ -9,7 +9,7 @@ const projectsData: Project[] = [
     name: "Skin-Sync: AI-Driven Skincare App",
     description: "Developed 'Dermie', an AI chatbot integrated with Google Gemini API, trained on dermatologist research to provide personalized skincare advice and guidance in an engaging manner.",
     technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "/images/project-logos/skin-symc.png",
     imageHint: "AI chatbot interface",
     githubUrl: "https://github.com/harishe182",
   },
