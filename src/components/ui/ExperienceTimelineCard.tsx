@@ -1,6 +1,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, MapPin } from "lucide-react";
+import Image from "next/image";
+import type { StaticImageData } from "next/image";
 
 interface ExperienceTimelineCardProps {
   date: string;
@@ -8,8 +10,8 @@ interface ExperienceTimelineCardProps {
   company: string;
   location: string;
   descriptionPoints: string[];
-  // align prop is no longer used, remove if not needed elsewhere
-  // align?: "left" | "right"; 
+  imageUrl: string | StaticImageData;
+  imageHint?: string;
 }
 
 export default function ExperienceTimelineCard({
@@ -18,13 +20,24 @@ export default function ExperienceTimelineCard({
   company,
   location,
   descriptionPoints,
+  imageUrl,
+  imageHint,
 }: ExperienceTimelineCardProps) {
-  // const cardAlignmentClass = align === "left" ? "md:mr-auto" : "md:ml-auto"; // No longer needed
   const titleColor = "text-accent"; 
 
   return (
-    <Card className={`w-full bg-card/80 backdrop-blur-sm shadow-lg border-primary/30 flex flex-col h-full`}> {/* Added flex flex-col h-full */}
-      <CardHeader>
+    <Card className={`w-full bg-card/80 backdrop-blur-sm shadow-lg border-primary/30 flex flex-col h-full overflow-hidden`}>
+      <div className="relative w-full aspect-[16/9] md:aspect-[2/1]">
+        <Image
+          src={imageUrl}
+          alt={`${title} at ${company}`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover"
+          data-ai-hint={imageHint || "professional experience"}
+        />
+      </div>
+      <CardHeader className="pt-4">
         <div className="flex justify-between items-start">
           <div>
             <CardTitle className={`font-headline text-xl ${titleColor}`}>{title}</CardTitle>
@@ -40,7 +53,7 @@ export default function ExperienceTimelineCard({
           {location}
         </p>
       </CardHeader>
-      <CardContent className="flex-grow"> {/* Added flex-grow */}
+      <CardContent className="flex-grow">
         <ul className="list-disc pl-5 space-y-1 text-foreground/80 text-sm">
           {descriptionPoints.map((point, index) => (
             <li key={index}>{point}</li>
@@ -50,3 +63,4 @@ export default function ExperienceTimelineCard({
     </Card>
   );
 }
+
