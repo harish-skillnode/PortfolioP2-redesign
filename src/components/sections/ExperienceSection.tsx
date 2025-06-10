@@ -18,8 +18,8 @@ const projectsData: Project[] = [
     name: "Neural Network Image Recognition",
     description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
     technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
-    imageUrl: "/images/project-logos/nn-diagram.png",
-    imageHint: "neural network diagram",
+    imageUrl: "https://placehold.co/400x300/FFFFFF/FFFFFF.png", // Generic white placeholder
+    imageHint: "generic network icon", // Hint for a white/light generic icon
     githubUrl: "https://github.com/harishe182",
   },
   {
@@ -27,8 +27,8 @@ const projectsData: Project[] = [
     name: "Sentimental Text Analysis",
     description: "This project involves a sentiment analysis tool built using Python. It utilizes the TextBlob library to evaluate and categorize text sentiment. The tool provides descriptive feedback based on the polarity of the input text, classifying sentiments into categories such as \"Very Positive,\" \"Slightly Positive,\" \"Neutral,\" \"Slightly Negative,\" and \"Very Negative.\" The aim is to offer insightful analysis of textual data to gauge emotional tone and sentiment.",
     technologies: ["Python", "TextBlob", "AI"],
-    imageUrl: "/images/project-logos/sentiment-analysis.png",
-    imageHint: "text analysis sentiment",
+    imageUrl: "https://placehold.co/400x300/FFFFFF/FFFFFF.png", // Generic white placeholder
+    imageHint: "generic analysis icon", // Hint for a white/light generic icon
     githubUrl: "https://github.com/harishe182",
   },
 ];
