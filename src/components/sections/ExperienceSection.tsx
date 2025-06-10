@@ -22,6 +22,15 @@ const projectsData: Project[] = [
     imageHint: "neural network diagram",
     githubUrl: "https://github.com/harishe182",
   },
+  {
+    id: "project-sentiment-analysis",
+    name: "Sentimental Text Analysis",
+    description: "This project involves a sentiment analysis tool built using Python. It utilizes the TextBlob library to evaluate and categorize text sentiment. The tool provides descriptive feedback based on the polarity of the input text, classifying sentiments into categories such as \"Very Positive,\" \"Slightly Positive,\" \"Neutral,\" \"Slightly Negative,\" and \"Very Negative.\" The aim is to offer insightful analysis of textual data to gauge emotional tone and sentiment.",
+    technologies: ["Python", "TextBlob", "AI"],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "text analysis sentiment",
+    githubUrl: "https://github.com/harishe182",
+  },
 ];
 
 export default function ProjectsSection() {
