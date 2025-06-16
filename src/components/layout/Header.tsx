@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image'; // Added import for Image
+import Image from 'next/image'; 
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -30,9 +30,9 @@ export default function Header() {
             <Image
               src="/images/logo/logo.png"
               alt="S.E Logo"
-              width={150} // Provide an estimated width for optimization
-              height={48}  // Provide the desired height
-              className="h-12 w-auto" // Actual display height, width adjusts
+              width={200} 
+              height={64}  
+              className="h-16 w-auto" 
             />
           </Link>
         </div>
