@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Open Sans', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
+        headline: ['Roboto', 'sans-serif'],
         code: ['monospace'],
         cursive: ['Dancing Script', 'cursive'],
       },
