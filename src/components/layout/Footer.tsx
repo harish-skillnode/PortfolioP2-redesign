@@ -1,6 +1,7 @@
 
 "use client";
 import Link from "next/link";
+import Image from 'next/image';
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
@@ -13,8 +14,14 @@ export default function Footer() {
             <div
               className="w-full md:w-1/2 lg:w-1/3"
             >
-              <Link href="#hero" className="inline-block mb-5 text-3xl font-cursive font-bold text-primary hover:text-accent transition-colors">
-                <span>S.E</span>
+              <Link href="#hero" className="inline-block mb-5 text-primary hover:text-accent transition-opacity duration-200 ease-in-out hover:opacity-85">
+                <Image
+                  src="/images/logo/logo.png"
+                  alt="S.E Logo"
+                  width={150}
+                  height={48}
+                  className="h-12 w-auto"
+                />
               </Link>
               <p className="mt-1 mb-10 text-foreground/80">
                 The path that leads to truth is a laborious one.
