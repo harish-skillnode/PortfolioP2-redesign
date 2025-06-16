@@ -18,9 +18,9 @@ export default function Footer() {
                 <Image
                   src="/images/logo/logo.png"
                   alt="S.E Logo"
-                  width={150}
-                  height={48}
-                  className="h-12 w-auto"
+                  width={175} 
+                  height={56}  
+                  className="h-14 w-auto" 
                 />
               </Link>
               <p className="mt-1 mb-10 text-foreground/80">
