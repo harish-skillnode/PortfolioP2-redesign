@@ -26,7 +26,7 @@ export default function Header() {
             href="#hero" 
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
-            <span className="font-headline text-4xl font-bold text-primary">
+            <span className="font-cursive text-4xl font-bold text-primary">
               S.E
             </span>
           </Link>
