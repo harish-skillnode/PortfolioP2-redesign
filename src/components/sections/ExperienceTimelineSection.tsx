@@ -17,7 +17,7 @@ const experiences = [
       "Collaborated with a research team to investigate the reliability of heart rate variability (HRV) as an indicator of stress.",
       "Conducted data analysis and created visualizations to interpret physiological response patterns.",
     ],
-    imageUrl: "/images/company-logos/RA.png", // Corrected path and added closing quote
+    imageUrl: "/images/company-logos/RA.png",
     imageHint: "university logo",
   },
   {

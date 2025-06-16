@@ -2,6 +2,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // Added import for Image
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -26,9 +27,13 @@ export default function Header() {
             href="#hero" 
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
           >
-            <span className="font-cursive text-4xl font-bold text-primary">
-              S.E
-            </span>
+            <Image
+              src="/images/logo/logo.png"
+              alt="S.E Logo"
+              width={150} // Provide an estimated width for optimization
+              height={48}  // Provide the desired height
+              className="h-12 w-auto" // Actual display height, width adjusts
+            />
           </Link>
         </div>
       </div>
