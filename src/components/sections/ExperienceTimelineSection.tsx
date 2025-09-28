@@ -28,14 +28,14 @@ const experiences = [
     description: "Delivered full-stack features for a prep platform used by hundreds of students (MCAT/LSAT). Built scalable Next.js/React front ends with Tailwind.",
     date: "Feb 2024 – Apr 2024",
     background: <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-700 opacity-30"></div>,
-    className: "md:col-span-2",
+    className: "md:col-span-1",
   },
 ];
 
 export default function ExperienceTimelineSection() {
   return (
     <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
-       <BentoGrid className="grid-rows-1 md:grid-cols-4 auto-rows-[18rem]">
+       <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[18rem]">
         {experiences.map((feature) => (
           <BentoCard key={feature.name} {...feature} />
         ))}
