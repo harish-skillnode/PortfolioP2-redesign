@@ -35,7 +35,7 @@ const experiences = [
 export default function ExperienceTimelineSection() {
   return (
     <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
-       <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[18rem]">
+       <BentoGrid className="grid-cols-1 md:grid-cols-3">
         {experiences.map((feature) => (
           <BentoCard key={feature.name} {...feature} />
         ))}
