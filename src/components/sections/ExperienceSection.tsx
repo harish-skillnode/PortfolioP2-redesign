@@ -1,7 +1,6 @@
-
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
-import { MessageSquareText, Bot, Brain } from "lucide-react"; // Import chosen icons
+import { MessageSquareText, Bot, Brain, FileText } from "lucide-react"; // Import chosen icons
 
 // Updated to only include projects
 const projectsData: Project[] = [
@@ -30,12 +29,19 @@ const projectsData: Project[] = [
     icon: MessageSquareText, // Use the icon component here
     githubUrl: "https://github.com/harishe182",
   },
+   {
+    id: "project-publication-chi-26",
+    name: "Publication (Under Submission to CHI '26)",
+    description: "Social and Playful Appropriation of a Smartwatch Stress Monitor. Co-author on methods, analysis, and writing.",
+    technologies: ["HCI", "Academic Writing", "Research"],
+    icon: FileText,
+  },
 ];
 
 export default function ProjectsSection() {
   return (
-    <SectionWrapper id="projects" title="Projects" className="bg-gradient-to-t from-zinc-800 to-zinc-900">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <SectionWrapper id="projects" title="Projects & Publications" className="bg-gradient-to-t from-zinc-800 to-zinc-900">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
         {projectsData.map((item) => (
           <ProjectCard key={item.id} project={item} />
         ))}
