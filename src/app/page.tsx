@@ -12,7 +12,6 @@ import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
 import { HomeIcon, User, Briefcase, Mail, Lightbulb, Linkedin, Github } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 
 export default function HomePage() { 
@@ -30,7 +29,6 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <ScrollProgress />
       <main className="flex-grow">
         <HeroSection />
         <div className="bg-zinc-800">

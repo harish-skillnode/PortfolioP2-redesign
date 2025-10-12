@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image'; 
 import { useEffect, useState } from 'react';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,6 +38,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
+      <ScrollProgress />
     </header>
   );
 }
