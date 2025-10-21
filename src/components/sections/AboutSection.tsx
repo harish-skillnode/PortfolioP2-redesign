@@ -24,7 +24,7 @@ export default function AboutSection() {
         <div className="relative group w-full max-w-md mx-auto aspect-square">
            <Image
             src="/images/about-light-02.svg"
-            alt="Sriharish Eswarathas - Abstract Design"
+            alt="Abstract geometric design with glowing lines, representing technology and innovation"
             width={600}
             height={600}
             className="rounded-lg shadow-xl object-contain group-hover:scale-105 transition-transform duration-300"
@@ -39,9 +39,7 @@ export default function AboutSection() {
             </CardHeader>
             <CardContent>
               <p className="text-lg text-foreground/90 leading-relaxed">
-                Hello! I'm Sriharish, a Computer Science student at the University of Guelph (expected 2027) with a minor in Mathematics and a current GPA of 4.0.
-                I'm passionate about leveraging technology to solve real-world problems, particularly in the realm of AI and full-stack development.
-                My journey is driven by a commitment to creating fast, functional, and visually engaging digital experiences.
+                Hello! I'm Sriharish, a Full Stack Developer and Computer Science student at the University of Guelph. I'm passionate about leveraging technology to solve real-world problems, with a special interest in AI development and Human-Computer Interaction (HCI). My goal is to build fast, functional, and visually engaging digital experiences.
               </p>
             </CardContent>
           </Card>

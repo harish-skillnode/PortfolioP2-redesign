@@ -29,10 +29,10 @@ export default function HeroSection() {
               Sriharish Eswarathas
             </h1>
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 text-center lg:text-left">
-              Software Engineer
+              Full Stack Developer & AI Researcher
             </h2>
             <div className="min-h-[2.5em] mb-8 w-full text-center lg:text-left">
-              <TypingAnimation text="Building the future." delayBeforeStart={500} />
+              <TypingAnimation text="Building the future with code and curiosity." delayBeforeStart={500} />
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto">
               <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300 w-full sm:w-auto">
@@ -60,7 +60,7 @@ export default function HeroSection() {
             <div className="w-[250px] h-[150px] md:w-[450px] md:h-[300px] mx-auto lg:mx-0">
               <Image 
                 src="https://i.imgur.com/1VLFIhU.gif" 
-                alt="Code animation gif" 
+                alt="Animated code syntax highlighting in a code editor" 
                 width={450} 
                 height={300}
                 className="rounded-lg shadow-xl"

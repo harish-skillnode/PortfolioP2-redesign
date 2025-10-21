@@ -17,7 +17,7 @@ export default function Footer() {
               <Link href="#hero" className="inline-block mb-5 text-primary hover:text-accent transition-opacity duration-200 ease-in-out hover:opacity-85">
                 <Image
                   src="/images/logo/logo.png"
-                  alt="S.E Logo"
+                  alt="S.E Logo - Sriharish Eswarathas"
                   width={175} 
                   height={56}  
                   className="h-14 w-auto" 
@@ -30,10 +30,10 @@ export default function Footer() {
                 Contact
               </p>
               <a
-                href="mailto:harisheswarathas@gmail.com"
+                href="mailto:harish182@icloud.com"
                 className="text-base font-medium text-accent hover:text-primary transition-colors"
               >
-                harisheswarathas@gmail.com
+                harish182@icloud.com
               </a>
               <div className="flex gap-6 mt-6 items-center">
                 <a
