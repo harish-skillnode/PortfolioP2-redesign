@@ -1,4 +1,3 @@
-
 "use client";
 
 import type React from 'react';
@@ -28,11 +27,8 @@ export default function HeroSection() {
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 text-center lg:text-left">
               Sriharish Eswarathas
             </h1>
-            <h2 className="font-cursive text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 text-center lg:text-left">
-              Full Stack Developer & AI Researcher
-            </h2>
-            <div className="min-h-[2.5em] mb-8 w-full text-center lg:text-left">
-              <TypingAnimation text="Building the future with code and curiosity." delayBeforeStart={500} />
+            <div className="min-h-[2.5em] my-6 w-full text-center lg:text-left">
+              <TypingAnimation text="Full Stack Developer & AI Researcher" delayBeforeStart={500} />
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto">
               <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300 w-full sm:w-auto">
