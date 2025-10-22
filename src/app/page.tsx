@@ -11,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
 import ChatbotDrawer from "@/components/ui/ChatbotDrawer"; // Import the new component
-import { Mail, Linkedin, Github, Bot } from "lucide-react"; 
+import { Mail, Linkedin, Github, Bot, Briefcase, Code } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
 
 
@@ -54,6 +54,12 @@ export default function HomePage() {
         <Dock>
           <DockIcon onClick={openChatbotDrawer}>
             <Bot className="h-6 w-6 text-primary" />
+          </DockIcon>
+          <DockIcon href="#experience">
+            <Briefcase className="h-6 w-6 text-primary" />
+          </DockIcon>
+          <DockIcon href="#projects">
+            <Code className="h-6 w-6 text-primary" />
           </DockIcon>
           <DockIcon href="https://www.linkedin.com/in/sriharish-eswarathas-002023240/">
             <Linkedin className="h-6 w-6 text-primary" />
