@@ -23,7 +23,7 @@ export default function Header() {
                   ${scrolled ? 'bg-header-bg backdrop-blur-lg shadow-lg border-b border-border/50' : 'bg-transparent backdrop-blur-md'}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-20">
+        <div className="flex items-center justify-center h-16">
           <Link 
             href="#hero" 
             className="flex items-center transition-opacity duration-200 ease-in-out hover:opacity-85"
@@ -31,9 +31,9 @@ export default function Header() {
             <Image
               src="/images/logo/logo.png"
               alt="S.E Logo"
-              width={200} 
-              height={64}  
-              className="h-12 sm:h-16 w-auto" 
+              width={160} 
+              height={51}  
+              className="h-10 sm:h-12 w-auto" 
             />
           </Link>
         </div>
