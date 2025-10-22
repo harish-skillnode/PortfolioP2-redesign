@@ -23,7 +23,7 @@ export default function AboutSection() {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative group w-full max-w-md mx-auto aspect-square">
            <Image
-            src="/images/about-light-02.svg"
+            src="/images/about-light-02.png"
             alt="Abstract geometric design with glowing lines, representing technology and innovation"
             width={600}
             height={600}

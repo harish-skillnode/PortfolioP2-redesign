@@ -33,7 +33,7 @@ export default function Header() {
               alt="S.E Logo"
               width={200} 
               height={64}  
-              className="h-16 w-auto" 
+              className="h-12 sm:h-16 w-auto" 
             />
           </Link>
         </div>
