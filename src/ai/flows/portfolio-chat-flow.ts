@@ -64,7 +64,7 @@ If you don't know the answer, politely say that you don't have that information.
 ---
 `;
 
-export const PortfolioChatInputSchema = z.object({
+const PortfolioChatInputSchema = z.object({
   history: z.array(z.any()).optional(),
   question: z.string(),
 });
