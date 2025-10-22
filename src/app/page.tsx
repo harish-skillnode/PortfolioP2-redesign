@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useCallback } from 'react'; // Added useCallback
+import { useState, useCallback } from 'react';
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -10,12 +10,14 @@ import ProjectsSection from "@/components/sections/ExperienceSection";
 import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
-import { HomeIcon, User, Briefcase, Mail, Lightbulb, Linkedin, Github } from "lucide-react"; 
+import ChatbotDrawer from "@/components/ui/ChatbotDrawer"; // Import the new component
+import { HomeIcon, User, Briefcase, Mail, Lightbulb, Linkedin, Github, Bot } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export default function HomePage() { 
   const [isContactDrawerOpen, setIsContactDrawerOpen] = useState(false);
+  const [isChatbotDrawerOpen, setIsChatbotDrawerOpen] = useState(false); // Add state for chatbot
   const isMobile = useIsMobile();
 
   const openContactDrawer = useCallback(() => {
@@ -24,6 +26,14 @@ export default function HomePage() {
 
   const closeContactDrawer = useCallback(() => {
     setIsContactDrawerOpen(false);
+  }, []);
+
+  const openChatbotDrawer = useCallback(() => {
+    setIsChatbotDrawerOpen(true);
+  }, []);
+
+  const closeChatbotDrawer = useCallback(() => {
+    setIsChatbotDrawerOpen(false);
   }, []);
 
   return (
@@ -48,11 +58,14 @@ export default function HomePage() {
           <DockIcon href="#about">
             <User className="h-6 w-6 text-primary" />
           </DockIcon>
-          <DockIcon href="#experience"> {/* Points to ExperienceTimelineSection */}
+          <DockIcon href="#experience">
             <Briefcase className="h-6 w-6 text-primary" />
           </DockIcon>
-          <DockIcon href="#projects"> {/* New DockIcon for ProjectsSection */}
+          <DockIcon href="#projects">
             <Lightbulb className="h-6 w-6 text-primary" />
+          </DockIcon>
+          <DockIcon onClick={openChatbotDrawer}>
+            <Bot className="h-6 w-6 text-primary" />
           </DockIcon>
           <DockIcon href="https://www.linkedin.com/in/sriharish-eswarathas-002023240/">
             <Linkedin className="h-6 w-6 text-primary" />
@@ -66,6 +79,7 @@ export default function HomePage() {
         </Dock>
       )}
       <ContactDrawer isOpen={isContactDrawerOpen} onClose={closeContactDrawer} />
+      <ChatbotDrawer isOpen={isChatbotDrawerOpen} onClose={closeChatbotDrawer} />
       <Footer />
     </>
   );
