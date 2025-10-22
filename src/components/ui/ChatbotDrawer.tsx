@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Bot, Send, User, Loader2 } from "lucide-react";
+import { Sparkles, Send, User, Loader2 } from "lucide-react";
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -93,7 +93,7 @@ export default function ChatbotDrawer({ isOpen, onClose }: ChatbotDrawerProps) {
       >
         <SheetHeader className="text-left pt-6 px-6">
           <SheetTitle className="text-3xl font-headline text-accent flex items-center">
-            <Bot className="mr-3 h-8 w-8" />
+            <Sparkles className="mr-3 h-8 w-8" />
             AI Assistant
           </SheetTitle>
           <SheetDescription className="text-foreground/80">
@@ -113,7 +113,7 @@ export default function ChatbotDrawer({ isOpen, onClose }: ChatbotDrawerProps) {
                 {message.role === 'assistant' && (
                    <Avatar className="w-8 h-8 border-2 border-primary">
                     <AvatarFallback className="bg-accent text-accent-foreground">
-                      <Bot className="w-5 h-5" />
+                      <Sparkles className="w-5 h-5" />
                     </AvatarFallback>
                   </Avatar>
                 )}
@@ -140,7 +140,7 @@ export default function ChatbotDrawer({ isOpen, onClose }: ChatbotDrawerProps) {
               <div className="flex items-start gap-3 justify-start">
                 <Avatar className="w-8 h-8 border-2 border-primary">
                   <AvatarFallback className="bg-accent text-accent-foreground">
-                    <Bot className="w-5 h-5" />
+                    <Sparkles className="w-5 h-5" />
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-secondary text-secondary-foreground p-3 rounded-lg">
