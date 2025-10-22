@@ -11,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
 import ChatbotDrawer from "@/components/ui/ChatbotDrawer"; // Import the new component
-import { HomeIcon, User, Briefcase, Mail, Lightbulb, Linkedin, Github, Bot } from "lucide-react"; 
+import { Mail, Linkedin, Github, Bot } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
 
 
@@ -52,18 +52,6 @@ export default function HomePage() {
       </main>
       {!isMobile && (
         <Dock>
-          <DockIcon href="#hero">
-            <HomeIcon className="h-6 w-6 text-primary" />
-          </DockIcon>
-          <DockIcon href="#about">
-            <User className="h-6 w-6 text-primary" />
-          </DockIcon>
-          <DockIcon href="#experience">
-            <Briefcase className="h-6 w-6 text-primary" />
-          </DockIcon>
-          <DockIcon href="#projects">
-            <Lightbulb className="h-6 w-6 text-primary" />
-          </DockIcon>
           <DockIcon onClick={openChatbotDrawer}>
             <Bot className="h-6 w-6 text-primary" />
           </DockIcon>
