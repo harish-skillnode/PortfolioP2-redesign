@@ -30,10 +30,10 @@ export default function Footer() {
                 Contact
               </p>
               <a
-                href="mailto:harish182@icloud.com"
+                href="mailto:harisheswarathas@gmail.com"
                 className="text-base font-medium text-accent hover:text-primary transition-colors"
               >
-                harish182@icloud.com
+                harisheswarathas@gmail.com
               </a>
               <div className="flex gap-6 mt-6 items-center">
                 <a
