@@ -30,7 +30,7 @@ const projectsData: Project[] = [
     technologies: ["Next.js", "React", "Tailwind CSS", "Figma"],
     icon: Users,
     imageAlt: "Interface of the Pipeline to Success education platform.",
-    liveDemoUrl: "https://www.eswarathasinnovations.com/projects/pipeline-to-success",
+    liveDemoUrl: "https://www.pipelinetosuccess.ca/",
   },
   {
     id: "publication-chi-26",
