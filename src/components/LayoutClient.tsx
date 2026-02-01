@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Preloader from '@/components/Preloader';
 import { Toaster } from "@/components/ui/toaster";
+import { motion } from 'framer-motion';
 
 export default function LayoutClient({ children }: { children: React.ReactNode }) {
     const [loading, setLoading] = useState(true);
@@ -20,9 +21,13 @@ export default function LayoutClient({ children }: { children: React.ReactNode }
     }
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
             {children}
             <Toaster />
-        </>
+        </motion.div>
     );
 }

@@ -9,55 +9,46 @@ export default function Preloader() {
   return (
     <div className="fixed inset-0 bg-background z-50 flex items-center justify-center">
         <Terminal>
-            <TypingAnimation>&gt; pnpm dlx shadcn@latest init</TypingAnimation>
+            <TypingAnimation>&gt; ./load-portfolio.sh</TypingAnimation>
 
             <AnimatedSpan className="text-green-500">
-                ✔ Preflight checks.
+                ✔ Firing up virtual environment...
             </AnimatedSpan>
 
             <AnimatedSpan className="text-green-500">
-                ✔ Verifying framework. Found Next.js.
+                ✔ Connecting to quantum mainframe...
             </AnimatedSpan>
 
             <AnimatedSpan className="text-green-500">
-                ✔ Validating Tailwind CSS.
+                ✔ Compiling experience modules...
             </AnimatedSpan>
 
             <AnimatedSpan className="text-green-500">
-                ✔ Validating import alias.
+                ✔ Calibrating project showcase...
+            </AnimatedSpan>
+            
+            <AnimatedSpan className="text-green-500">
+                ✔ Polishing UI components...
             </AnimatedSpan>
 
             <AnimatedSpan className="text-green-500">
-                ✔ Writing components.json.
+                ✔ Rerouting flux capacitor...
             </AnimatedSpan>
-
+            
             <AnimatedSpan className="text-green-500">
-                ✔ Checking registry.
-            </AnimatedSpan>
-
-            <AnimatedSpan className="text-green-500">
-                ✔ Updating tailwind.config.ts
-            </AnimatedSpan>
-
-            <AnimatedSpan className="text-green-500">
-                ✔ Updating app/globals.css
-            </AnimatedSpan>
-
-            <AnimatedSpan className="text-green-500">
-                ✔ Installing dependencies.
+                ✔ Decrypting skill matrix...
             </AnimatedSpan>
 
             <AnimatedSpan className="text-blue-500">
-                <span>ℹ Updated 1 file:</span>
-                <span className="pl-2">- lib/utils.ts</span>
+                <span>ℹ Almost there...</span>
             </AnimatedSpan>
 
             <TypingAnimation className="text-muted-foreground">
-                Success! Project initialization completed.
+                Success! Welcome to the portfolio of Sriharish Eswarathas.
             </TypingAnimation>
 
             <TypingAnimation className="text-muted-foreground">
-                You may now add components.
+                You may now explore the digital space.
             </TypingAnimation>
         </Terminal>
     </div>
