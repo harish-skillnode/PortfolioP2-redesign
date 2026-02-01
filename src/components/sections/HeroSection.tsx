@@ -28,7 +28,7 @@ export default function HeroSection() {
               Sriharish Eswarathas
             </h1>
             <div className="min-h-[2.5em] my-6 w-full text-center lg:text-left">
-              <TypingAnimation text="Full Stack Developer & AI Researcher" delayBeforeStart={500} />
+              <TypingAnimation text="Full Stack Developer & Data Analyst" delayBeforeStart={500} />
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto">
               <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300 w-full sm:w-auto">

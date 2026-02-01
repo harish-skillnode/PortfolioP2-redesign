@@ -94,10 +94,10 @@ export default function ChatbotDrawer({ isOpen, onClose }: ChatbotDrawerProps) {
         <SheetHeader className="text-left pt-6 px-6">
           <SheetTitle className="text-3xl font-headline text-accent flex items-center">
             <Sparkles className="mr-3 h-8 w-8" />
-            AI Assistant
+            AI Chat
           </SheetTitle>
           <SheetDescription className="text-foreground/80">
-            Ask me anything about Sriharish, his projects, or his experience.
+            Have a question about my portfolio? Ask away.
           </SheetDescription>
         </SheetHeader>
         <ScrollArea className="flex-grow px-6" ref={scrollAreaRef}>
