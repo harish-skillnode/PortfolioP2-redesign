@@ -8,7 +8,8 @@ const skills = {
     "Programming & Data": ["Python", "Java", "JavaScript", "TypeScript", "C++", "SQL", "R", "Bash"],
     "Frameworks & Libraries": ["React", "Next.js", "Node.js", "Express.js", "Flask", "FastAPI", "Pandas", "NumPy", "Matplotlib", "SciPy"],
     "Databases & APIs": ["PostgreSQL", "MySQL", "SQLite", "REST APIs", "Data Modeling", "ETL Pipelines"],
-    "Tools & Platforms": ["Git", "GitHub", "Docker", "AWS", "Google Cloud", "CI/CD", "Figma"]
+    "Tools & Platforms": ["Git", "GitHub", "Docker", "AWS", "Google Cloud", "CI/CD", "Figma"],
+    "Specialties": ["Full Stack Development", "AI Research"]
 };
 
 const values = [
