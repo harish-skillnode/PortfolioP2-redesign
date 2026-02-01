@@ -2,7 +2,6 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { FlaskConical, BookUser, BarChart3, Target } from "lucide-react";
-import ExperienceCard from "@/components/ui/ExperienceCard";
 import React from "react";
 
 const experiences = [
@@ -48,10 +47,34 @@ const experiences = [
 export default function ExperienceTimelineSection() {
   return (
     <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {experiences.map((exp, index) => (
-          <ExperienceCard key={index} experience={exp} />
-        ))}
+      <div className="relative max-w-4xl mx-auto">
+        {/* The vertical timeline bar */}
+        <div className="absolute left-4 top-2 h-full w-0.5 bg-border/30"></div>
+
+        <div className="space-y-10">
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative pl-12">
+              {/* Timeline Dot */}
+              <div className="absolute left-[7px] top-1 h-5 w-5 rounded-full bg-primary border-4 border-background"></div>
+
+              {/* Content */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex-grow pr-4">
+                   <h3 className="text-xl font-semibold text-accent flex items-center gap-3">
+                     <exp.Icon className="h-6 w-6 text-primary flex-shrink-0" />
+                     <span>{exp.name}</span>
+                   </h3>
+                   <ul className="mt-3 list-disc pl-5 space-y-2 text-foreground/80 text-sm">
+                      {exp.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2 sm:mt-1 sm:ml-6 sm:text-right whitespace-nowrap">{exp.date}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );
