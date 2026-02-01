@@ -1,5 +1,7 @@
+
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Link from 'next/link';
 
 const BentoGrid = ({
   children,
@@ -26,39 +28,47 @@ const BentoCard = ({
   background,
   Icon,
   description,
-  date,
+  href,
 }: {
   name: string;
   className: string;
   background: ReactNode;
   Icon: React.ElementType;
   description: string;
-  date: string;
-}) => (
-  <div
-    key={name}
-    className={cn(
-      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl h-full",
-      "bg-card [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      "transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)]",
-      "transition-all duration-300 ease-in-out hover:shadow-glow-accent",
-      className
-    )}
-  >
-    <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
-      <div className="flex justify-between items-start">
+  href: string;
+}) => {
+  const cardContent = (
+    <div
+      key={name}
+      className={cn(
+        "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl h-full",
+        "bg-card [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+        "transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)]",
+        "transition-all duration-300 ease-in-out hover:shadow-glow-accent",
+        className
+      )}
+    >
+      {background}
+      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
         <Icon className="h-12 w-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-hover:scale-75" />
-        <span className="text-sm text-muted-foreground">{date}</span>
+        <h3 className="text-xl font-semibold text-foreground/80">
+          {name}
+        </h3>
+        <p className="max-w-lg text-foreground/60">{description}</p>
       </div>
-      <h3 className="text-xl font-semibold text-foreground/80">
-        {name}
-      </h3>
-      <p className="max-w-lg text-foreground/60">{description}</p>
-    </div>
 
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
-  </div>
-);
+      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+    </div>
+  );
+
+  if (href && href !== "#") {
+    return (
+        <Link href={href} target="_blank" rel="noopener noreferrer" className="h-full">
+            {cardContent}
+        </Link>
+    )
+  }
+  return cardContent;
+};
 
 export { BentoCard, BentoGrid };
