@@ -1,7 +1,7 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
+import LayoutClient from '@/components/LayoutClient';
 
 const SEO_TITLE = "Sriharish Eswarathas | Full Stack Developer & AI Researcher";
 const SEO_DESCRIPTION = "Portfolio of Sriharish Eswarathas, a Full Stack Developer and University of Guelph Computer Science student specializing in React, Next.js, and AI. Explore my projects and research.";
@@ -93,8 +93,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased min-h-screen flex flex-col">
-        {children}
-        <Toaster />
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );
