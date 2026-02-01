@@ -53,24 +53,27 @@ export default function ExperienceTimelineSection() {
 
         <div className="space-y-10">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-12">
+            <div key={index} className="relative pl-12 group">
               {/* Timeline Dot */}
-              <div className="absolute left-[7px] top-1 h-5 w-5 rounded-full bg-primary border-4 border-background"></div>
+              <div className="absolute left-[7px] top-7 h-5 w-5 rounded-full bg-primary border-4 border-background z-10"></div>
 
-              {/* Content */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex-grow pr-4">
-                   <h3 className="text-xl font-semibold text-accent flex items-center gap-3">
-                     <exp.Icon className="h-6 w-6 text-primary flex-shrink-0" />
-                     <span>{exp.name}</span>
-                   </h3>
-                   <ul className="mt-3 list-disc pl-5 space-y-2 text-foreground/80 text-sm">
-                      {exp.description.map((point, i) => (
-                        <li key={i}>{point}</li>
-                      ))}
-                    </ul>
+              {/* Card Container */}
+              <div className="bg-card/80 backdrop-blur-sm shadow-lg border border-primary/20 rounded-lg p-6 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-glow-accent group-hover:border-primary/40">
+                {/* Content */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex-grow">
+                     <h3 className="text-xl font-semibold text-accent flex items-center gap-3">
+                       <exp.Icon className="h-6 w-6 text-primary flex-shrink-0" />
+                       <span>{exp.name}</span>
+                     </h3>
+                     <ul className="mt-3 list-disc pl-5 space-y-2 text-foreground/80 text-sm">
+                        {exp.description.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2 sm:mt-0 sm:ml-4 sm:text-right whitespace-nowrap">{exp.date}</p>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2 sm:mt-1 sm:ml-6 sm:text-right whitespace-nowrap">{exp.date}</p>
               </div>
             </div>
           ))}
