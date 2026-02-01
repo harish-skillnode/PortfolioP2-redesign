@@ -1,7 +1,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
-import { Bot, Brain, Users, FileText } from "lucide-react"; 
+import { Bot, Brain, Users, FileText, Timer } from "lucide-react"; 
 import { ReactNode } from "react";
 
 interface Project {
@@ -35,6 +35,14 @@ const projects: Project[] = [
     name: "Pipeline to Success — Education Platform",
     description: "Contributed to frontend development for a platform used by 100+ Guelph students for MCAT prep.",
     href: "https://www.pipelinetosuccess.ca/",
+    background: <div />,
+    className: "md:col-span-1",
+  },
+  {
+    Icon: Timer,
+    name: "PomoPanda",
+    description: "An AI-powered Pomodoro productivity app that helps users stay focused and build better work habits.",
+    href: "https://github.com/harishe182/PomoPanda",
     background: <div />,
     className: "md:col-span-1",
   },

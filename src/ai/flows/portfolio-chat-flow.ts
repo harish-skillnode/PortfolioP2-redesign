@@ -64,6 +64,12 @@ If you don't know the answer, politely say that you don't have that information.
   - **Contribution**: Contributed to frontend development, improving UI layout, responsiveness, and usability.
   - **Link**: Live Site available.
 
+- **PomoPanda — AI Pomodoro Productivity App**:
+  - **Description**: An AI-powered Pomodoro productivity app that helps users stay focused, block distractions, and build better work habits. With intelligent insights, customizable timers, and app/website blocking, it turns deep focus into a sustainable daily routine.
+  - **Associated with**: University of Guelph
+  - **Date**: Sep 2025 - Nov 2025
+  - **Link**: https://github.com/harishe182/PomoPanda
+
 **PUBLICATIONS**
 
 - **"Social and Playful Appropriation of a Smartwatch Stress Monitor"**
