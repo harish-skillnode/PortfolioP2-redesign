@@ -2,6 +2,7 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { FlaskConical, BookUser, BarChart3, Target } from "lucide-react";
+import ExperienceCard from "@/components/ui/ExperienceCard";
 import React from "react";
 
 const experiences = [
@@ -47,37 +48,10 @@ const experiences = [
 export default function ExperienceTimelineSection() {
   return (
     <SectionWrapper id="experience" title="Experience" className="bg-gradient-to-t from-zinc-900 to-zinc-800">
-      <div className="relative">
-        {/* The vertical line */}
-        <div className="absolute left-9 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
-        
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-20">
-              {/* The circle on the timeline */}
-              <div className="absolute left-9 top-1 w-6 h-6 bg-accent rounded-full -translate-x-1/2 flex items-center justify-center">
-                <div className="w-3 h-3 bg-primary rounded-full"></div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mr-4">
-                  <exp.Icon className="h-10 w-10 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start flex-col sm:flex-row">
-                    <h3 className="text-xl font-semibold text-foreground/90">{exp.name}</h3>
-                    <span className="text-sm text-muted-foreground whitespace-nowrap mt-1 sm:mt-0 sm:ml-4">{exp.date}</span>
-                  </div>
-                    <ul className="mt-2 text-foreground/70 list-disc pl-5 space-y-1">
-                        {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((point, i) => (
-                            <li key={i}>{point}</li>
-                        ))}
-                    </ul>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {experiences.map((exp, index) => (
+          <ExperienceCard key={index} experience={exp} />
+        ))}
       </div>
     </SectionWrapper>
   );
