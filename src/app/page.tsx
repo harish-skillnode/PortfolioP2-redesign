@@ -40,6 +40,7 @@ export default function HomePage() {
         <ExperienceTimelineSection /> 
         <ProjectsSection />
       </main>
+      <Footer />
       {!isMobile && (
         <Dock>
           <DockIcon href="#experience">
