@@ -10,14 +10,12 @@ import ProjectsSection from "@/components/sections/ExperienceSection";
 import Footer from "@/components/layout/Footer";
 import { Dock, DockIcon } from "@/components/ui/Dock";
 import ContactDrawer from "@/components/ui/ContactDrawer";
-import ChatbotDrawer from "@/components/ui/ChatbotDrawer"; // Import the new component
-import { Mail, Linkedin, Github, Sparkles, Briefcase, Code } from "lucide-react"; 
+import { Mail, Linkedin, Github, Briefcase, Code } from "lucide-react"; 
 import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export default function HomePage() { 
   const [isContactDrawerOpen, setIsContactDrawerOpen] = useState(false);
-  const [isChatbotDrawerOpen, setIsChatbotDrawerOpen] = useState(false); // Add state for chatbot
   const isMobile = useIsMobile();
 
   const openContactDrawer = useCallback(() => {
@@ -26,14 +24,6 @@ export default function HomePage() {
 
   const closeContactDrawer = useCallback(() => {
     setIsContactDrawerOpen(false);
-  }, []);
-
-  const openChatbotDrawer = useCallback(() => {
-    setIsChatbotDrawerOpen(true);
-  }, []);
-
-  const closeChatbotDrawer = useCallback(() => {
-    setIsChatbotDrawerOpen(false);
   }, []);
 
   return (
@@ -52,9 +42,6 @@ export default function HomePage() {
       </main>
       {!isMobile && (
         <Dock>
-          <DockIcon onClick={openChatbotDrawer}>
-            <Sparkles className="h-6 w-6 text-primary" />
-          </DockIcon>
           <DockIcon href="#experience">
             <Briefcase className="h-6 w-6 text-primary" />
           </DockIcon>
@@ -73,8 +60,6 @@ export default function HomePage() {
         </Dock>
       )}
       <ContactDrawer isOpen={isContactDrawerOpen} onClose={closeContactDrawer} />
-      <ChatbotDrawer isOpen={isChatbotDrawerOpen} onClose={closeChatbotDrawer} />
-      <Footer />
     </>
   );
 }
