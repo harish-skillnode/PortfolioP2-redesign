@@ -4,14 +4,12 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 
-const technicalSkills = [
-  // Programming Languages
-  "Java", "Python", "C", "C++", "HTML", "CSS", "JavaScript", "TypeScript", "R",
-  // Frameworks/Libraries
-  "React", "Next.js", "Tailwind CSS", "Flask", "Prisma ORM", "NumPy", "Pandas", "Matplotlib",
-  // Tools/Technologies
-  "GitHub", "Visual Studio Code", "PyCharm", "MySQL", "SQLite", "AWS", "Google Gemini API", "OAuth", "Docker"
-];
+const skills = {
+    "Programming & Data": ["Python", "Java", "JavaScript", "TypeScript", "C++", "SQL", "R", "Bash"],
+    "Frameworks & Libraries": ["React", "Next.js", "Node.js", "Express.js", "Flask", "FastAPI", "Pandas", "NumPy", "Matplotlib", "SciPy"],
+    "Databases & APIs": ["PostgreSQL", "MySQL", "SQLite", "REST APIs", "Data Modeling", "ETL Pipelines"],
+    "Tools & Platforms": ["Git", "GitHub", "Docker", "AWS", "Google Cloud", "CI/CD", "Figma"]
+};
 
 const values = [
   "User-centric design", "Clean & maintainable code", "Continuous learning", "Collaborative teamwork"
@@ -48,14 +46,19 @@ export default function AboutSection() {
             <CardHeader>
               <CardTitle className="text-2xl font-headline text-accent">My Tech Stack</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {technicalSkills.map(skill => (
-                  <span key={skill} className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+            <CardContent className="space-y-4">
+              {Object.entries(skills).map(([category, skillList]) => (
+                <div key={category}>
+                  <h4 className="font-semibold text-foreground/90 mb-2">{category}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {skillList.map(skill => (
+                      <span key={skill} className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </CardContent>
           </Card>
 

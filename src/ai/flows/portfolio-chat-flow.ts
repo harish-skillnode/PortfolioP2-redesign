@@ -16,51 +16,59 @@ If you don't know the answer, politely say that you don't have that information.
 **SRIHARISH ESWARATHAS - PROFILE**
 
 - **Name**: Sriharish Eswarathas
-- **Role**: Full Stack Developer, AI Developer, and HCI Research Assistant.
-- **Location**: Brampton, Ontario, Canada.
-- **Education**: Bachelor of Computing (B.Comp.), Computer Science with a Minor in Mathematics at the University of Guelph.
-
-**CONTACT & SOCIALS**
-- **Email**: harish182@icloud.com
-- **GitHub**: github.com/harishe182
-- **LinkedIn**: linkedin.com/in/sriharish-eswarathas-002023240
-- **Portfolio**: sriharisheswarathas.netlify.app
+- **Location**: Brampton, ON
+- **Contact**: harisheswarathas@gmail.com | 437-488-3228
+- **Socials**: LinkedIn, GitHub, Portfolio
+- **Education**: University of Guelph, Bachelor of Computing (Computer Science) with a Minor in Mathematics. Expected April 2027. GPA: 3.7.
+- **Relevant Coursework**: Software Engineering, Intelligent Systems, Statistics, Data Structures, Algorithms, Linear Algebra.
 
 **TECHNICAL SKILLS**
-- **Programming Languages**: Java, Python, C, C++, HTML, CSS, JavaScript, TypeScript, R
-- **Frameworks/Libraries**: React, Next.js, Tailwind CSS, Flask, Prisma ORM, NumPy, Pandas, Matplotlib
-- **Tools/Technologies**: GitHub, Visual Studio Code, PyCharm, MySQL, SQLite, AWS, Google Gemini API, OAuth, Docker
+- **Programming & Data**: Python, Java, JavaScript, TypeScript, C++, SQL, R, Bash
+- **Frameworks & Libraries**: React, Next.js, Node.js, Express.js, Flask, FastAPI, Pandas, NumPy, Matplotlib, SciPy
+- **Databases & APIs**: PostgreSQL, MySQL, SQLite, REST APIs, Data Modeling, ETL Pipelines
+- **Tools & Platforms**: Git, GitHub, Docker, AWS, Google Cloud, CI/CD, Figma
 
-**KEY PROJECTS & EXPERIENCE**
+**EXPERIENCE**
 
-- **Skin-Sync: AI Skincare App**:
-  - **Description**: Developed "Dermie," an AI chatbot using the Google Gemini API. It provides personalized skincare advice based on dermatologist research.
-  - **Technologies**: AI, Google Gemini API, Flask, React, Python.
+- **Data & Growth Analytics (Contract ∙ Part-time) @ Axon Health Inc.** (Jan 2026 – Mar 2026)
+  - Built and maintained structured datasets using Python and SQL.
+  - Developed customer segmentation logic to inform growth initiatives.
+  - Translated data into actionable insights for product and leadership.
 
-- **Neural Network Image Recognition**:
-  - **Description**: Built a neural network from scratch in Python to perform image recognition. Implemented custom weight initialization, ReLU/softmax activation, and Adam optimization.
-  - **Technologies**: Python, NumPy, Pandas, Matplotlib, AI.
+- **Growth Strategy Analyst (Contract ∙ Part-time) @ Roots Funding** (Jan 2026 – Feb 2026)
+  - Conducted market, customer, and operational analysis for a data-driven growth strategy.
+  - Produced a final Growth Strategy Report with actionable recommendations.
 
-- **Sentimental Text Analysis**:
-  - **Description**: A Python-based tool using the TextBlob library to evaluate and categorize the sentiment of text, providing descriptive feedback on emotional tone.
-  - **Technologies**: Python, TextBlob, AI.
+- **Teaching Assistant — Discrete Structures & User Interface Design (Part-time) @ University of Guelph** (Sep 2025 – Apr 2026)
+  - Led weekly labs for 250+ students, reinforcing algorithmic and logical thinking.
+  - Held office hours, graded assignments, and supported course delivery.
 
-- **Publication (Under Submission to CHI '26)**:
-  - **Title**: "Social and Playful Appropriation of a Smartwatch Stress Monitor."
-  - **Contribution**: Co-author on methods, analysis, and writing.
-  - **Field**: Human-Computer Interaction (HCI).
+- **Research Assistant (Full-time) @ University of Guelph** (May 2025 – Aug 2025)
+  - Conducted qualitative HCI research on smartwatch-based stress monitoring.
+  - Analyzed data from interviews, app store reviews, and social media posts.
 
-- **Teaching Assistant (Sep 2025 – Dec 2025)**:
-  - **Role**: TA for CIS*1910 Discrete Structures in Computing I at the University of Guelph.
-  - **Responsibilities**: Taught weekly lab sections on discrete mathematics, sets, proofs, and logic.
+**PROJECTS**
 
-- **Research Assistant (May 2025 – Aug 2025)**:
-  - **Role**: Research Assistant at the University of Guelph.
-  - **Responsibilities**: Investigated HCI in collaborative learning with AI. Co-authored the manuscript for CHI '26.
+- **StepByStep — Full-Stack AI Math Tutor**:
+  - **Description**: A full-stack tutoring system with adaptive, step-by-step math feedback, built in a 7-person team.
+  - **Contribution**: Implemented a difficulty estimation algorithm using linear regression.
+  - **Link**: GitHub available.
 
-- **Software Developer (Feb 2024 – Apr 2024)**:
-  - **Company**: Engineering Ambition.
-  - **Responsibilities**: Delivered full-stack features for a prep platform (MCAT/LSAT) using Next.js, React, and Tailwind. The platform served hundreds of students.
+- **Skin-Sync — AI Skincare Assistant**:
+  - **Description**: A production-ready full-stack web app for personalized, AI-driven skincare recommendations.
+  - **Contribution**: Built RESTful backend services with Flask and integrated AI workflows.
+  - **Link**: Live Site available.
+
+- **Pipeline to Success — Education Platform**:
+  - **Description**: An education platform used by 100+ Guelph students preparing for the MCAT.
+  - **Contribution**: Contributed to frontend development, improving UI layout, responsiveness, and usability.
+  - **Link**: Live Site available.
+
+**PUBLICATIONS**
+
+- **"Social and Playful Appropriation of a Smartwatch Stress Monitor"**
+  - **Status**: Under Submission to CHI 2026.
+  - **Contribution**: Co-author; responsible for qualitative analysis and manuscript preparation.
 ---
 `;
 

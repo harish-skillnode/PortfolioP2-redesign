@@ -1,43 +1,42 @@
 
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard, { type Project } from "@/components/ui/ProjectCard";
-import { MessageSquareText, Bot, Brain, FileText } from "lucide-react"; // Import chosen icons
+import { Bot, Brain, Users, FileText } from "lucide-react"; 
 
-// Updated to only include projects
+// Updated projects based on the new resume
 const projectsData: Project[] = [
   {
+    id: "project-step-by-step-ai",
+    name: "StepByStep — AI Math Tutor",
+    description: "Built a full-stack tutoring system with adaptive, step-by-step math feedback in a 7-person team. Implemented a difficulty estimation algorithm using linear regression.",
+    technologies: ["React", "Next.js", "Python", "AI", "Linear Regression"],
+    icon: Bot,
+    imageAlt: "An AI Math tutor interface showing a math problem.",
+    githubUrl: "https://github.com/harishe182", 
+  },
+  {
     id: "project-skin-sync-ai",
-    name: "Skin-Sync: AI-Driven Skincare App",
-    description: "Developed 'Dermie', an AI chatbot integrated with Google Gemini API, trained on dermatologist research to provide personalized skincare advice and guidance in an engaging manner.",
-    technologies: ["AI", "Google Gemini API", "Flask", "React", "Python"],
-    icon: Bot, // Use the Bot icon
-    imageAlt: "Screenshot of the Skin-Sync AI chatbot interface named Dermie.",
-    githubUrl: "https://github.com/harishe182",
-    liveDemoUrl: "https://skin-sync.netlify.app/", 
+    name: "Skin-Sync — AI Skincare Assistant",
+    description: "Developed a production-ready full-stack web app delivering personalized, AI-driven skincare recommendations. Built RESTful backend services with Flask and integrated AI workflows for routine generation.",
+    technologies: ["AI", "Flask", "React", "Python", "REST APIs"],
+    icon: Brain,
+    imageAlt: "Screenshot of the Skin-Sync AI skincare assistant application.",
+    liveDemoUrl: "https://skin-sync.netlify.app/",
   },
   {
-    id: "project-nn-image-recognition",
-    name: "Neural Network Image Recognition",
-    description: "Developed a neural network from scratch for image recognition, incorporating custom weight initialization, ReLU/softmax activation, and Adam optimization. Implemented forward/backward propagation and real-time prediction.",
-    technologies: ["Python", "NumPy", "Pandas", "Matplotlib", "AI"],
-    icon: Brain, // Use the Brain icon
-    imageAlt: "Diagram illustrating the architecture of a neural network for image recognition.",
-    githubUrl: "https://github.com/harishe182",
+    id: "project-pipeline-to-success",
+    name: "Pipeline to Success — Education Platform",
+    description: "Contributed to frontend development for a platform used by 100+ Guelph students preparing for the MCAT. Improved UI layout, responsiveness, and usability in collaboration with engineers and designers.",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Figma"],
+    icon: Users,
+    imageAlt: "Interface of the Pipeline to Success education platform.",
+    liveDemoUrl: "https://www.eswarathasinnovations.com/projects/pipeline-to-success",
   },
   {
-    id: "project-sentiment-analysis",
-    name: "Sentimental Text Analysis",
-    description: "This project involves a sentiment analysis tool built using Python. It utilizes the TextBlob library to evaluate and categorize text sentiment. The tool provides descriptive feedback based on the polarity of the input text, classifying sentiments into categories such as \"Very Positive,\" \"Slightly Positive,\" \"Neutral,\" \"Slightly Negative,\" and \"Very Negative.\" The aim is to offer insightful analysis of textual data to gauge emotional tone and sentiment.",
-    technologies: ["Python", "TextBlob", "AI"],
-    icon: MessageSquareText, // Use the icon component here
-    imageAlt: "Abstract visualization of positive and negative sentiment analysis.",
-    githubUrl: "https://github.com/harishe182",
-  },
-   {
-    id: "project-publication-chi-26",
-    name: "Publication (Under Submission to CHI '26)",
-    description: "Social and Playful Appropriation of a Smartwatch Stress Monitor. Co-author on methods, analysis, and writing.",
-    technologies: ["HCI", "Academic Writing", "Research"],
+    id: "publication-chi-26",
+    name: "Publication: Social and Playful Appropriation of a Smartwatch Stress Monitor",
+    description: "Under submission to CHI 2026. Co-authored the paper, focusing on qualitative analysis and manuscript preparation.",
+    technologies: ["HCI", "Qualitative Analysis", "Academic Writing", "Research"],
     icon: FileText,
     imageAlt: "Icon representing a published research paper.",
   },
