@@ -1,80 +1,79 @@
-
 "use client";
+
 import Link from "next/link";
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-[#272729] mt-auto">
-      <div className="container mx-auto px-4 md:px-8 2xl:px-0">
-        {/* Footer Top */}
-        <div className="py-20 lg:py-25">
-          <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
-            <div
-              className="w-full md:w-1/2 lg:w-1/3"
-            >
-              <Link href="#hero" className="inline-block mb-5 text-primary hover:text-accent transition-opacity duration-200 ease-in-out hover:opacity-85">
-                <Image
-                  src="/images/logo/logo.png"
-                  alt="S.E Logo - Sriharish Eswarathas"
-                  width={175} 
-                  height={56}  
-                  className="h-14 w-auto" 
-                />
-              </Link>
-              <p className="mt-1 mb-10 text-foreground/80">
-                The path that leads to truth is a laborious one.
-              </p>
-              <p className="mb-1.5 text-lg font-medium uppercase tracking-wider text-foreground">
-                Contact
-              </p>
-              <a
+    <footer className="relative border-t border-white/5 bg-background overflow-hidden">
+      <div className="absolute inset-0 dot-grid opacity-10 pointer-events-none"></div>
+      
+      <div className="container relative z-10 mx-auto px-4 md:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24">
+          <div className="space-y-6">
+            <Link href="#hero" className="inline-block transition-transform hover:scale-105 active:scale-95">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Sriharish Eswarathas Logo"
+                width={175} 
+                height={56}  
+                className="h-12 w-auto brightness-110" 
+              />
+            </Link>
+            <p className="text-foreground/60 leading-relaxed max-w-sm italic">
+              "The path that leads to truth is a laborious one."
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">Contact</h4>
+            <div className="space-y-4">
+               <a
                 href="mailto:harisheswarathas@gmail.com"
-                className="text-base font-medium text-accent hover:text-primary transition-colors"
+                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors hover:text-glow-primary"
               >
                 harisheswarathas@gmail.com
               </a>
-              <div className="flex gap-6 mt-6 items-center">
+              <div className="flex gap-6 items-center">
                 <a
                   href="https://www.linkedin.com/in/sriharish-eswarathas-002023240/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-accent transition-colors icon-glow"
+                  className="text-foreground/70 hover:text-primary transition-all duration-300 hover:scale-110 icon-glow"
                   aria-label="LinkedIn Profile"
                 >
-                  <FaLinkedin size={30} />
+                  <FaLinkedin size={28} />
                 </a>
                 <a
                   href="https://github.com/harishe182"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-accent transition-colors icon-glow"
+                  className="text-foreground/70 hover:text-primary transition-all duration-300 hover:scale-110 icon-glow"
                   aria-label="GitHub Profile"
                 >
-                  <FaGithub size={30} />
+                  <FaGithub size={28} />
                 </a>
               </div>
-               <div className="mt-4">
-                 <a
-                  href="https://eswarathasinnovations.com" // Placeholder URL
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-foreground/70 hover:text-accent transition-colors"
-                  aria-label="Eswarathas Innovations Website"
-                >
-                  Eswarathas Innovations
-                </a>
-               </div>
             </div>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-primary">Navigation</h4>
+            <ul className="space-y-3 text-foreground/60 text-sm">
+               <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
+               <li><a href="#experience" className="hover:text-primary transition-colors">Experience</a></li>
+               <li><a href="#projects" className="hover:text-primary transition-colors">Projects</a></li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="py-8 text-center text-sm text-foreground/70">
-          <p>
-            &copy; {new Date().getFullYear()} Sriharish Eswarathas. All rights reserved.
-          </p>
+        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-foreground/40 font-medium tracking-wide">
+          <p>&copy; {new Date().getFullYear()} SRIHARISH ESWARATHAS. ALL RIGHTS RESERVED.</p>
+          <div className="flex gap-8">
+            <span className="hover:text-primary/60 cursor-pointer transition-colors">PRIVACY POLICY</span>
+            <span className="hover:text-primary/60 cursor-pointer transition-colors">TERMS OF SERVICE</span>
+          </div>
         </div>
       </div>
     </footer>

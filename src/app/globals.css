@@ -8,70 +8,38 @@ body {
 
 @layer base {
   :root {
-    --background: 240 6% 10%; /* Near-black, like zinc-900 */
-    --foreground: 0 0% 98%; /* Light Gray/White */
-
-    --card: 240 5% 13%; /* Slightly lighter than background, between zinc-900 and zinc-800 */
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 6% 8%; /* Darker for popovers */
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%; /* Light Gray/White (was Deep Indigo) */
-    --primary-foreground: 240 6% 10%; /* Dark Text (was Light Gray/White) */
-
-    --secondary: 240 5% 17%; /* Dark gray, like zinc-800 */
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 5% 20%;
-    --muted-foreground: 0 0% 60%; /* Lighter muted text */
-
-    --accent: 0 0% 90%; /* Off-white/Light Gray (was Electric Violet) */
-    --accent-foreground: 240 6% 10%; /* Dark Text (was Light Gray/White) */
-
-    --destructive: 0 72% 51%; /* Adjusted for dark theme */
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5% 20%; /* Darker border */
-    --input: 240 5% 15%; /* Darker input background */
-    --ring: 0 0% 80%; /* Light Gray for ring (was Brighter accent) */
-
-    --chart-1: 0 0% 85%;
-    --chart-2: 0 0% 75%;
-    --chart-3: 0 0% 65%;
-    --chart-4: 0 0% 55%;
-    --chart-5: 0 0% 45%;
-
-    --radius: 0.5rem;
-
-    /* Specific for glass/carbon theme, updated for zinc */
-    --header-background: 240 5% 17% / 0.7; /* Semi-transparent zinc-800 like */
-    --footer-background: 240 5% 17% / 0.8; /* Semi-transparent zinc-800 like */
-  }
-
-  .dark {
-    --background: 240 6% 10%;
+    --background: 240 6% 8%; /* Darker background for more depth */
     --foreground: 0 0% 98%;
-    --card: 240 5% 13%;
+
+    --card: 240 5% 12%; 
     --card-foreground: 0 0% 98%;
-    --popover: 240 6% 8%;
+
+    --popover: 240 6% 6%; 
     --popover-foreground: 0 0% 98%;
+
     --primary: 0 0% 98%;
-    --primary-foreground: 240 6% 10%;
-    --secondary: 240 5% 17%;
+    --primary-foreground: 240 6% 8%;
+
+    --secondary: 240 5% 15%; 
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 5% 20%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 90%;
-    --accent-foreground: 240 6% 10%;
+
+    --muted: 240 5% 18%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 0 0% 92%; 
+    --accent-foreground: 240 6% 8%;
+
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 20%;
-    --input: 240 5% 15%;
-    --ring: 0 0% 80%;
-    
-    --header-background: 240 5% 17% / 0.7;
-    --footer-background: 240 5% 17% / 0.8;
+
+    --border: 240 5% 18%;
+    --input: 240 5% 12%;
+    --ring: 0 0% 84%;
+
+    --radius: 0.75rem;
+
+    --header-background: 240 5% 12% / 0.6;
+    --footer-background: 240 5% 12% / 0.8;
   }
 }
 
@@ -80,10 +48,26 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground; /* Solid base background */
+    @apply bg-background text-foreground;
   }
-  /* Custom glow effect for icons */
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-lg;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  .dot-grid {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsla(var(--primary) / 0.3);
+  }
+
   .icon-glow {
-    filter: drop-shadow(0 0 5px hsl(var(--accent))); /* Glow will now be light gray/white */
+    filter: drop-shadow(0 0 8px hsla(var(--accent) / 0.5));
   }
 }

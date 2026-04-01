@@ -31,11 +31,6 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <div className="bg-zinc-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <hr className="border-t border-zinc-700 shadow-lg shadow-black/30 my-4" />
-          </div>
-        </div>
         <AboutSection />
         <ExperienceTimelineSection /> 
         <ProjectsSection />

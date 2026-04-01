@@ -1,4 +1,22 @@
 
+/**
+ * SSR Polyfill for localStorage and sessionStorage to prevent errors during Next.js pre-rendering.
+ * This is injected at the root layout to ensure global availability.
+ */
+if (typeof window === 'undefined') {
+  const noop = () => null;
+  const storage = {
+    getItem: noop,
+    setItem: () => {},
+    removeItem: () => {},
+    clear: () => {},
+    length: 0,
+    key: noop,
+  };
+  (global as any).localStorage = storage;
+  (global as any).sessionStorage = storage;
+}
+
 import type { Metadata } from 'next';
 import './globals.css';
 import LayoutClient from '@/components/LayoutClient';

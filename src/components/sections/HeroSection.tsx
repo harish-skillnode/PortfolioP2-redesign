@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import TypingAnimation from "@/components/ui/TypingAnimation";
 import { ArrowDown, FileText } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
 
@@ -17,55 +18,83 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center py-20 px-4 bg-gradient-to-t from-zinc-900 to-zinc-800 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-transparent to-background/50 backdrop-filter backdrop-blur-sm"></div>
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-background">
+      {/* Background Layers */}
+      <div className="absolute inset-0 dot-grid opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
       
+      {/* Animated Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[160px] animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[160px] animate-pulse delay-1000"></div>
+
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between">
-          {/* Text Content - Left on Large Screens, Bottom on Mobile */}
-          <div className="max-w-3xl mx-auto lg:mx-0 order-2 lg:order-1 flex flex-col items-center lg:items-start lg:mr-16">
-            <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 text-center lg:text-left">
-              Sriharish Eswarathas
-            </h1>
-            <div className="min-h-[2.5em] my-6 w-full text-center lg:text-left">
-              <TypingAnimation text="Full Stack Developer & Data Analyst" delayBeforeStart={500} />
-            </div>
-            <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto">
-              <Button asChild size="lg" className="shadow-glow-primary hover:shadow-glow-accent transition-shadow duration-300 w-full sm:w-auto">
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <FileText className="mr-2 h-5 w-5" />
-                  View Resume/CV
-                </a>
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-primary text-primary hover:bg-primary/10 hover:text-accent transition-colors duration-300 w-full sm:w-auto"
-                onClick={handleScrollToAbout}
-              >
-                <ArrowDown className="mr-2 h-5 w-5" />
-                Learn More
-              </Button>
-            </div>
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between py-20">
+          
+          {/* Text Content - Left on Large Screens */}
+          <div className="max-w-3xl mx-auto lg:mx-0 flex flex-col items-center lg:items-start lg:mr-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-6 text-center lg:text-left leading-tight text-glow-primary">
+                Sriharish Eswarathas
+              </h1>
+              <div className="min-h-[2.5em] mb-10 w-full text-center lg:text-left">
+                <span className="text-xl sm:text-2xl md:text-3xl font-light text-foreground/80 tracking-wide uppercase">
+                  <TypingAnimation text="Software Engineer" delayBeforeStart={500} />
+                </span>
+              </div>
+
+              <p className="text-lg text-muted-foreground mb-12 text-center lg:text-left leading-relaxed max-w-xl font-medium">
+                Building high-performance digital experiences and robust systems. 
+                Final year Computer Science student at the University of Guelph.
+              </p>
+
+              <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6 items-center justify-center lg:justify-start">
+                <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg bg-white text-zinc-900 hover:bg-white/90 transition-all duration-300 group shadow-glow-primary hover:scale-105 active:scale-95">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-3 h-5 w-5 transition-transform group-hover:scale-110" />
+                    View Resume
+                  </a>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="rounded-full px-10 py-7 text-lg border-white/10 glass-card hover:bg-white/5 transition-all duration-300"
+                  onClick={handleScrollToAbout}
+                >
+                  <ArrowDown className="mr-3 h-5 w-5 animate-bounce" />
+                  Explore
+                </Button>
+              </div>
+            </motion.div>
           </div>
 
-          {/* GIF - Right on Large Screens, Top on Mobile, Hidden on screens smaller than lg */}
-          <div 
-            className="mb-8 lg:mb-0 lg:ml-16 order-1 lg:order-2 hidden lg:block"
+          {/* GIF - Right on Large Screens */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mb-8 lg:mb-0 lg:ml-16 hidden lg:block relative"
           >
-            <div className="w-[250px] h-[150px] md:w-[450px] md:h-[300px] mx-auto lg:mx-0">
+            <div className="w-[300px] h-[200px] md:w-[450px] md:h-[300px]">
               <Image 
                 src="https://i.imgur.com/1VLFIhU.gif" 
-                alt="Animated code syntax highlighting in a code editor" 
+                alt="Animated visual" 
                 width={450} 
                 height={300}
-                className="rounded-lg shadow-xl"
+                className="w-full h-auto brightness-90 contrast-110"
                 unoptimized={true} 
               />
             </div>
-          </div>
+          </motion.div>
+          
         </div>
       </div>
+
+      {/* Hero Bottom Decorative Elements */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
     </section>
   );
 }
