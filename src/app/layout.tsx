@@ -21,10 +21,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 import LayoutClient from '@/components/LayoutClient';
 
-const SEO_TITLE = "Sriharish Eswarathas | Full Stack Developer & AI Researcher";
-const SEO_DESCRIPTION = "Portfolio of Sriharish Eswarathas, a Full Stack Developer and University of Guelph Computer Science student specializing in React, Next.js, and AI. Explore my projects and research.";
+const SEO_TITLE = "Sriharish Eswarathas Portfolio";
+const SEO_DESCRIPTION = "Portfolio of Sriharish Eswarathas, a Software Engineer and University of Guelph Computer Science student specializing in React, Next.js, and AI. Explore my projects and research.";
 const SEO_URL = "https://sriharisheswarathas.netlify.app";
-const SEO_IMAGE = `${SEO_URL}/images/about-light-02.svg`; // Absolute URL for OG image
+const SEO_IMAGE = `${SEO_URL}/images/about-light-02.png`; // Absolute URL for OG image
 
 export const metadata: Metadata = {
   title: SEO_TITLE,
@@ -74,7 +74,7 @@ const jsonLd = {
     "https://github.com/harishe182",
     "https://www.linkedin.com/in/sriharish-eswarathas-002023240"
   ],
-  "jobTitle": "Full Stack Developer",
+  "jobTitle": "Software Engineer",
   "worksFor": {
     "@type": "Organization",
     "name": "University of Guelph"
