@@ -51,21 +51,23 @@ export default function HeroSection() {
                 Final year Computer Science student at the University of Guelph.
               </p>
 
-              <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6 items-center justify-center lg:justify-start">
-                <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg bg-white text-zinc-900 hover:bg-white/90 transition-all duration-300 group shadow-glow-primary hover:scale-105 active:scale-95">
+              <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                <Button
+                  asChild
+                  className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-zinc-900 shadow-none transition-colors hover:bg-white/90"
+                >
                   <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                    <FileText className="mr-3 h-5 w-5 transition-transform group-hover:scale-110" />
-                    View Resume
+                    <FileText className="mr-2 h-4 w-4" />
+                    Resume
                   </a>
                 </Button>
                 <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="rounded-full px-10 py-7 text-lg border-white/10 glass-card hover:bg-white/5 transition-all duration-300"
+                  variant="ghost"
+                  className="h-12 rounded-full px-5 text-sm font-semibold text-white/60 transition-colors hover:bg-white/5 hover:text-white"
                   onClick={handleScrollToAbout}
                 >
-                  <ArrowDown className="mr-3 h-5 w-5 animate-bounce" />
-                  Explore
+                  <ArrowDown className="mr-2 h-4 w-4" />
+                  Explore work
                 </Button>
               </div>
             </motion.div>
