@@ -1,174 +1,813 @@
 "use client";
 
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import { FlaskConical, BookUser, BarChart3, Target, Calendar, Code, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import React, {
+  KeyboardEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
-const experiences = [
+type LogoPresentation = "square" | "wordmark" | "permalution";
+
+type Experience = {
+  id: string;
+  role: string;
+  company: string;
+  employment: string;
+  date: string;
+  location: string;
+  detail?: string;
+  bullets: string[];
+  logoSrc: string;
+  logoAlt: string;
+  logoPresentation: LogoPresentation;
+};
+
+type TimelinePoint = {
+  x: number;
+  y: number;
+};
+
+const experiences: Experience[] = [
   {
-    Icon: Code,
-    name: "Incoming Software Development Engineer (SDE) Intern @ Criteo",
-    description: [
-      "Joining the engineering team for a Summer 2026 internship to building high-scale distributed systems.",
+    id: "wearable-technology-research",
+    role: "Research Assistant - Wearable Technology HCI",
+    company: "University of Guelph Research",
+    employment: "Contract Full-time",
+    date: "May 2025 - Aug 2025 · 4 mos",
+    location: "Guelph, Ontario, Canada · Hybrid",
+    bullets: [
+      "Analyzed and visualized wearable stress-tracking data for an HCI study of user behavior.",
     ],
-    date: "May 2026 – Aug 2026",
+    logoSrc: "/images/company-logos/RA.png",
+    logoAlt: "University of Guelph Research logo",
+    logoPresentation: "square",
   },
   {
-    Icon: BookUser,
-    name: "Teaching Assistant @ University of Guelph",
-    description: [
-        "Led weekly labs for Discrete Structures & User Interface Design, reinforcing algorithmic and logical thinking for 250+ students.",
-        "Held office hours, graded assignments, and supported course delivery for approximately 10 hours per week."
+    id: "ai-creativity-research",
+    role: "Researcher - AI & Creativity HCI",
+    company: "University of Guelph Research",
+    employment: "Contract Part-time",
+    date: "Sep 2025 - Present · 11 mos",
+    location: "Guelph, Ontario, Canada · Remote",
+    bullets: [
+      "Study how AI tools influence human creativity through HCI research and software prototyping.",
     ],
-    date: "Sep 2025 – Present",
+    logoSrc: "/images/company-logos/RA.png",
+    logoAlt: "University of Guelph Research logo",
+    logoPresentation: "square",
   },
   {
-    Icon: FlaskConical,
-    name: "Research Assistant @ University of Guelph",
-    description: [
-      "Conducted qualitative HCI research on smartwatch-based stress monitoring and user appropriation.",
-      "Analyzed data from 18 semi-structured interviews, 238 app store reviews, and public social media posts.",
+    id: "teaching-assistant-discrete-structures",
+    role: "Teaching Assistant - Discrete Structures In Computing I",
+    company: "University of Guelph",
+    employment: "Contract Part-time",
+    date: "Sep 2025 - Dec 2025 · 4 mos",
+    location: "Guelph, Ontario, Canada · Hybrid",
+    detail: "CIS*1910 (F25)",
+    bullets: [
+      "Supported Discrete Structures labs, student questions, grading, and course delivery.",
     ],
-    date: "May 2025 – Present",
+    logoSrc: "/images/company-logos/RA.png",
+    logoAlt: "University of Guelph logo",
+    logoPresentation: "square",
   },
   {
-    Icon: Search,
-    name: "User Experience Researcher (Contract · Part-time) @ Permalution (Riipen)",
-    description: [
-      "Conduct user research to understand platform usability, workflows, and user needs across digital products.",
-      "Design and execute research studies including user interviews, usability testing, and feedback analysis.",
+    id: "axon-health",
+    role: "Data Analyst",
+    company: "Axon Health",
+    employment: "Internship",
+    date: "Jan 2026 - Mar 2026 · 3 mos",
+    location: "Canada · Remote",
+    detail: "The Unified HMIS for Ending Homelessness",
+    bullets: [
+      "Conducted market research and data analysis to support product and growth decisions.",
     ],
-    date: "Mar 2026 – May 2026",
+    logoSrc: "/images/company-logos/axon-health-logo.jpg",
+    logoAlt: "Axon Health logo",
+    logoPresentation: "square",
   },
   {
-    Icon: BarChart3,
-    name: "Data & Growth Analytics (Contract) @ Axon Health Inc.",
-    description: [
-      "Built and maintained structured datasets using Python and SQL to support customer and market analysis.",
-      "Developed segmentation logic across 5–7 customer cohorts to inform onboarding and growth initiatives.",
-      "Collaborated with product and leadership to translate qualitative and quantitative data into actionable insights.",
+    id: "teaching-assistant-interface-design",
+    role: "Teaching Assistant - User Interface Design",
+    company: "University of Guelph",
+    employment: "Contract Part-time",
+    date: "Jan 2026 - Apr 2026 · 4 mos",
+    location: "Guelph, Ontario, Canada · Hybrid",
+    detail: "CIS*2170 (W26)",
+    bullets: [
+      "Supported User Interface Design labs, student questions, and assignment feedback.",
     ],
-    date: "Jan 2026 – Mar 2026",
+    logoSrc: "/images/company-logos/RA.png",
+    logoAlt: "University of Guelph logo",
+    logoPresentation: "square",
   },
   {
-    Icon: Target,
-    name: "Growth Strategy Analyst (Contract) @ Roots Funding",
-    description: [
-      "Conducted market, customer, and operational analysis to support the development of a data-driven growth strategy.",
-      "Produced a final Growth Strategy Report synthesizing insights into actionable recommendations for stakeholders.",
+    id: "permalution",
+    role: "User Experience Designer",
+    company: "Permalution",
+    employment: "Internship",
+    date: "Mar 2026 - May 2026 · 3 mos",
+    location: "Remote",
+    bullets: [
+      "Used UX research and user-behavior insights to improve product workflows and interface decisions.",
     ],
-    date: "Jan 2026 – Feb 2026",
+    logoSrc: "/images/company-logos/permalution-logo.png",
+    logoAlt: "Permalution water droplet logo",
+    logoPresentation: "permalution",
+  },
+  {
+    id: "criteo",
+    role: "Software Development Engineer",
+    company: "Criteo",
+    employment: "Internship",
+    date: "May 2026 - Present · 3 mos",
+    location: "Toronto, Ontario, Canada · Hybrid",
+    detail: "Ad Validation & Activations (AVA)",
+    bullets: [
+      "Contribute to software development for the Ad Validation & Activations team.",
+    ],
+    logoSrc: "/images/company-logos/criteo-logo.svg",
+    logoAlt: "Criteo logo",
+    logoPresentation: "wordmark",
   },
 ];
 
-export default function ExperienceTimelineSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+const DESKTOP_TRACK_HEIGHT = 650;
+const DESKTOP_NODE_START = 280;
+const DESKTOP_NODE_GAP = 520;
+const DESKTOP_CARD_WIDTH = 420;
+const DESKTOP_CARD_HEIGHT = 320;
+const DESKTOP_NODE_Y = [240, 400, 230, 400, 250, 400, 240];
+const DESKTOP_TRACK_WIDTH =
+  DESKTOP_NODE_START * 2 + DESKTOP_NODE_GAP * (experiences.length - 1);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 400; // Match a card width
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+const NATIVE_TRACK_HEIGHT = 720;
+const NATIVE_NODE_START = 196;
+const NATIVE_NODE_GAP = 368;
+const NATIVE_CARD_WIDTH = 344;
+const NATIVE_CARD_HEIGHT = 430;
+const NATIVE_NODE_Y = [82, 112, 74, 118, 84, 108, 76];
+const NATIVE_TRACK_WIDTH =
+  NATIVE_NODE_START * 2 + NATIVE_NODE_GAP * (experiences.length - 1);
+
+const desktopPoints: TimelinePoint[] = experiences.map((_, index) => ({
+  x: DESKTOP_NODE_START + index * DESKTOP_NODE_GAP,
+  y: DESKTOP_NODE_Y[index],
+}));
+
+const nativePoints: TimelinePoint[] = experiences.map((_, index) => ({
+  x: NATIVE_NODE_START + index * NATIVE_NODE_GAP,
+  y: NATIVE_NODE_Y[index],
+}));
+
+function buildWavePath(points: TimelinePoint[]) {
+  if (points.length === 0) return "";
+
+  return points.slice(1).reduce((path, point, index) => {
+    const previous = points[index];
+    const controlOffset = (point.x - previous.x) * 0.46;
+
+    return `${path} C ${previous.x + controlOffset} ${previous.y}, ${
+      point.x - controlOffset
+    } ${point.y}, ${point.x} ${point.y}`;
+  }, `M ${points[0].x} ${points[0].y}`);
+}
+
+const desktopWavePath = buildWavePath(desktopPoints);
+const nativeWavePath = buildWavePath(nativePoints);
+
+function CompanyLogo({ experience }: { experience: Experience }) {
+  if (experience.logoPresentation === "permalution") {
+    return (
+      <span className="relative block h-14 w-14 overflow-hidden rounded-full">
+        <Image
+          src={experience.logoSrc}
+          alt={experience.logoAlt}
+          width={154}
+          height={56}
+          className="absolute left-1 top-1/2 h-14 w-auto max-w-none -translate-y-1/2"
+        />
+      </span>
+    );
+  }
+
+  if (experience.logoPresentation === "wordmark") {
+    return (
+      <Image
+        src={experience.logoSrc}
+        alt={experience.logoAlt}
+        width={118}
+        height={24}
+        className="h-auto w-14 object-contain"
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={experience.logoSrc}
+      alt={experience.logoAlt}
+      width={64}
+      height={64}
+      className="h-14 w-14 rounded-lg object-contain"
+    />
+  );
+}
+
+function TimelineNode({
+  experience,
+  active,
+  reached,
+}: {
+  experience: Experience;
+  active: boolean;
+  reached: boolean;
+}) {
+  return (
+    <motion.div
+      animate={{
+        scale: active ? 1.12 : 1,
+        opacity: reached ? 1 : 0.52,
+      }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className={`relative z-20 flex h-[74px] w-[74px] items-center justify-center rounded-full border bg-white p-2 shadow-2xl transition-colors ${
+        active
+          ? "border-white shadow-[0_0_42px_rgba(255,255,255,0.3)]"
+          : reached
+            ? "border-white/70"
+            : "border-white/20"
+      }`}
+    >
+      <CompanyLogo experience={experience} />
+      <span
+        aria-hidden="true"
+        className={`absolute -inset-2 -z-10 rounded-full border transition-all duration-300 ${
+          active ? "scale-100 border-white/30 opacity-100" : "scale-75 border-transparent opacity-0"
+        }`}
+      />
+    </motion.div>
+  );
+}
+
+function ExperienceCard({
+  experience,
+  index,
+  activeIndex,
+  className = "",
+}: {
+  experience: Experience;
+  index: number;
+  activeIndex: number;
+  className?: string;
+}) {
+  const active = index === activeIndex;
+  const passed = index < activeIndex;
+
+  return (
+    <motion.article
+      id={`experience-card-${experience.id}`}
+      aria-current={active ? "step" : undefined}
+      animate={{
+        opacity: active ? 1 : passed ? 0.68 : 0.38,
+        scale: active ? 1 : 0.95,
+        y: active ? 0 : index % 2 === 0 ? 8 : -8,
+      }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className={`glass-card flex flex-col rounded-[2rem] border-white/10 bg-zinc-950/75 p-6 shadow-2xl backdrop-blur-2xl transition-colors ${
+        active ? "border-white/30" : "hover:border-white/20"
+      } ${className}`}
+    >
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-muted-foreground">
+          <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
+          {experience.date}
+        </div>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      <div className="mb-3">
+        <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+          {experience.employment}
+        </p>
+        <h3 className="text-xl font-bold leading-tight text-foreground">
+          {experience.role}
+        </h3>
+        <p className="mt-1 text-sm font-semibold text-white/55">
+          {experience.company}
+        </p>
+        <p className="mt-2 text-[11px] leading-4 text-white/35">
+          {experience.location}
+        </p>
+        {experience.detail && (
+          <p className="mt-1 text-[11px] font-semibold leading-4 text-primary/60">
+            {experience.detail}
+          </p>
+        )}
+      </div>
+
+      <ul className="mt-auto space-y-2 text-[13px] leading-5 text-foreground/65">
+        {experience.bullets.map((bullet) => (
+          <li key={bullet} className="flex gap-2.5">
+            <span
+              aria-hidden="true"
+              className="mt-[0.55rem] h-1 w-1 flex-shrink-0 rounded-full bg-white/65"
+            />
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.article>
+  );
+}
+
+function TimelineControls({
+  activeIndex,
+  onSelect,
+}: {
+  activeIndex: number;
+  onSelect: (index: number) => void;
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={() => onSelect(activeIndex - 1)}
+        disabled={activeIndex === 0}
+        aria-label="Previous experience"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-zinc-950/80 text-foreground shadow-xl backdrop-blur-xl transition hover:border-white/35 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-25"
+      >
+        <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div
+        className="min-w-[5.5rem] text-center text-xs font-semibold tracking-[0.18em] text-white/45"
+        aria-live="polite"
+      >
+        {String(activeIndex + 1).padStart(2, "0")}
+        <span aria-hidden="true"> / </span>
+        <span className="sr-only"> of </span>
+        {String(experiences.length).padStart(2, "0")}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => onSelect(activeIndex + 1)}
+        disabled={activeIndex === experiences.length - 1}
+        aria-label="Next experience"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-zinc-950/80 text-foreground shadow-xl backdrop-blur-xl transition hover:border-white/35 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-25"
+      >
+        <ChevronRight className="h-5 w-5" aria-hidden="true" />
+      </button>
+    </div>
+  );
+}
+
+export default function ExperienceTimelineSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const nativeScrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const [desktopTravel, setDesktopTravel] = useState(0);
+  const shouldReduceMotion = useReducedMotion() ?? false;
+  const desktopScrubEnabled = isDesktop && !shouldReduceMotion;
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+  const desktopXRaw = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -desktopTravel],
+  );
+  const desktopX = useSpring(desktopXRaw, {
+    stiffness: 120,
+    damping: 28,
+    mass: 0.28,
+  });
+  const desktopPathProgress = useTransform(
+    scrollYProgress,
+    [0.025, 0.96],
+    [0, 1],
+  );
+  const nativePathProgress = useMotionValue(0);
+  const nativePathProgressSpring = useSpring(nativePathProgress, {
+    stiffness: 150,
+    damping: 30,
+    mass: 0.25,
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const updateViewport = () => {
+      setIsDesktop(mediaQuery.matches);
+      setViewportHeight(window.innerHeight);
+      setDesktopTravel(
+        Math.max(
+          0,
+          desktopPoints[desktopPoints.length - 1].x - window.innerWidth / 2,
+        ),
+      );
+    };
+
+    updateViewport();
+    mediaQuery.addEventListener("change", updateViewport);
+    window.addEventListener("resize", updateViewport);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateViewport);
+      window.removeEventListener("resize", updateViewport);
+    };
+  }, []);
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!desktopScrubEnabled) return;
+
+    const nextIndex = Math.min(
+      experiences.length - 1,
+      Math.max(0, Math.round(progress * (experiences.length - 1))),
+    );
+
+    setActiveIndex((currentIndex) =>
+      currentIndex === nextIndex ? currentIndex : nextIndex,
+    );
+  });
+
+  const scrollToDesktopIndex = useCallback(
+    (index: number) => {
+      const nextIndex = Math.min(
+        experiences.length - 1,
+        Math.max(0, index),
+      );
+      const section = sectionRef.current;
+
+      if (!section) return;
+
+      const sectionTop =
+        section.getBoundingClientRect().top + window.scrollY;
+      const scrollableDistance = Math.max(
+        0,
+        section.offsetHeight - window.innerHeight,
+      );
+      const targetProgress = nextIndex / (experiences.length - 1);
+
+      window.scrollTo({
+        top: sectionTop + scrollableDistance * targetProgress,
+        behavior: shouldReduceMotion ? "auto" : "smooth",
       });
+      setActiveIndex(nextIndex);
+    },
+    [shouldReduceMotion],
+  );
+
+  const scrollToNativeIndex = useCallback(
+    (index: number) => {
+      const nextIndex = Math.min(
+        experiences.length - 1,
+        Math.max(0, index),
+      );
+      const scroller = nativeScrollerRef.current;
+
+      if (!scroller) return;
+
+      const targetLeft =
+        nativePoints[nextIndex].x - scroller.clientWidth / 2;
+      scroller.scrollTo({
+        left: Math.max(
+          0,
+          Math.min(targetLeft, scroller.scrollWidth - scroller.clientWidth),
+        ),
+        behavior: shouldReduceMotion ? "auto" : "smooth",
+      });
+      setActiveIndex(nextIndex);
+    },
+    [shouldReduceMotion],
+  );
+
+  const handleNativeScroll = useCallback(() => {
+    const scroller = nativeScrollerRef.current;
+    if (!scroller) return;
+
+    const maxScroll = Math.max(1, scroller.scrollWidth - scroller.clientWidth);
+    const progress = scroller.scrollLeft / maxScroll;
+    nativePathProgress.set(progress);
+
+    const nextIndex = Math.min(
+      experiences.length - 1,
+      Math.max(0, Math.round(progress * (experiences.length - 1))),
+    );
+    setActiveIndex((currentIndex) =>
+      currentIndex === nextIndex ? currentIndex : nextIndex,
+    );
+  }, [nativePathProgress]);
+
+  useEffect(() => {
+    if (desktopScrubEnabled) return;
+
+    const animationFrame = window.requestAnimationFrame(handleNativeScroll);
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [desktopScrubEnabled, handleNativeScroll]);
+
+  const handleTimelineKeyDown = (
+    event: KeyboardEvent<HTMLElement | HTMLDivElement>,
+    onSelect: (index: number) => void,
+  ) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      onSelect(activeIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      onSelect(activeIndex + 1);
     }
   };
 
+  const desktopSectionHeight =
+    viewportHeight + desktopTravel + Math.min(420, viewportHeight * 0.55);
+
   return (
-    <SectionWrapper id="experience" title="Professional Journey" className="bg-background relative overflow-hidden group/section">
-      <div className="absolute inset-0 dot-grid opacity-10 pointer-events-none"></div>
-      
-      <div className="relative w-full py-20 px-4 md:px-12">
-        <div className="max-w-[1400px] mx-auto relative">
-          
-          {/* Navigation Arrows - Moved further out and styled better */}
-          <div className="absolute top-[45%] -translate-y-1/2 -left-4 md:-left-12 z-40 hidden sm:block">
-            <button 
-              onClick={() => scroll('left')}
-              className="p-4 rounded-full glass-card hover:bg-white/10 transition-all duration-300 shadow-glow-primary active:scale-95 border border-white/20"
-              aria-label="Scroll Left"
-            >
-              <ChevronLeft className="h-6 w-6 text-primary" />
-            </button>
+    <section
+      id="experience"
+      ref={sectionRef}
+      aria-label="Professional Journey"
+      className="relative scroll-mt-20 bg-background"
+      style={
+        desktopScrubEnabled
+          ? { height: `${desktopSectionHeight}px` }
+          : undefined
+      }
+    >
+      {desktopScrubEnabled ? (
+        <div
+          className="sticky top-0 h-screen overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60"
+          tabIndex={0}
+          onKeyDown={(event) =>
+            handleTimelineKeyDown(event, scrollToDesktopIndex)
+          }
+        >
+          <div className="dot-grid absolute inset-0 opacity-10" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-30 w-24 bg-gradient-to-r from-background to-transparent"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-30 w-24 bg-gradient-to-l from-background to-transparent"
+            aria-hidden="true"
+          />
+
+          <div className="absolute left-1/2 top-8 z-40 -translate-x-1/2 text-center">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/35">
+              From research to production
+            </p>
+            <h2 className="whitespace-nowrap text-4xl font-bold text-primary lg:text-5xl">
+              Professional Journey
+            </h2>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Scroll to follow the path
+            </p>
           </div>
 
-          <div className="absolute top-[45%] -translate-y-1/2 -right-4 md:-right-12 z-40 hidden sm:block">
-            <button 
-              onClick={() => scroll('right')}
-              className="p-4 rounded-full glass-card hover:bg-white/10 transition-all duration-300 shadow-glow-primary active:scale-95 border border-white/20"
-              aria-label="Scroll Right"
-            >
-              <ChevronRight className="h-6 w-6 text-primary" />
-            </button>
-          </div>
-
-          {/* Horizontal Timeline Container */}
-          <div 
-            ref={scrollContainerRef}
-            className="flex items-start gap-10 overflow-x-auto pb-16 px-4 md:px-10 no-scrollbar cursor-grab active:cursor-grabbing snap-x snap-mandatory"
+          <motion.div
+            className="absolute left-0 top-[120px]"
+            style={{
+              x: desktopX,
+              width: DESKTOP_TRACK_WIDTH,
+              height: DESKTOP_TRACK_HEIGHT,
+            }}
           >
-            
-            {/* Connecting Line (Horizontal) - Aligned with node center (32px from top of h-16 container) */}
-            <div className="absolute top-[32px] left-0 h-px w-[1000%] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"></div>
+            <svg
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 overflow-visible"
+              width={DESKTOP_TRACK_WIDTH}
+              height={DESKTOP_TRACK_HEIGHT}
+              viewBox={`0 0 ${DESKTOP_TRACK_WIDTH} ${DESKTOP_TRACK_HEIGHT}`}
+              fill="none"
+            >
+              <path
+                d={desktopWavePath}
+                stroke="rgba(255,255,255,0.11)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <motion.path
+                d={desktopWavePath}
+                stroke="rgba(255,255,255,0.88)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                style={{ pathLength: desktopPathProgress }}
+              />
+            </svg>
 
-            {experiences.map((exp, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex-shrink-0 w-[85vw] sm:w-[350px] md:w-[420px] snap-center relative pt-20"
-              >
-                {/* Timeline Node (Above the Card) */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                   <div className="h-16 w-16 rounded-full glass-card flex items-center justify-center z-20 shadow-[0_0_25px_rgba(255,255,255,0.1)] border border-white/20 group-hover:scale-110 transition-transform duration-500 mb-4 bg-zinc-900/80">
-                      <exp.Icon className="h-8 w-8 text-primary group-hover:text-glow-primary" />
-                   </div>
-                   {/* Visual stem connecting node to line */}
-                   <div className="h-8 w-px bg-white/20"></div>
-                </div>
+            <div role="list" aria-label="Career experiences">
+              {experiences.map((experience, index) => {
+                const point = desktopPoints[index];
+                const cardBelow = index % 2 === 0;
+                const cardTop = cardBelow
+                  ? point.y + 66
+                  : point.y - 66 - DESKTOP_CARD_HEIGHT;
 
-                {/* Content Card */}
-                <div className="glass-card p-8 rounded-[2.5rem] hover:border-white/25 transition-all duration-500 group relative bg-zinc-900/40 backdrop-blur-2xl h-full flex flex-col shadow-2xl">
-                   {/* Date Tag */}
-                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-muted-foreground mb-6 w-fit">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {exp.date}
-                   </div>
+                return (
+                  <div key={experience.id} role="listitem">
+                    <div
+                      className="absolute z-10 w-px bg-gradient-to-b from-white/5 via-white/35 to-white/5"
+                      style={{
+                        left: point.x,
+                        top: cardBelow ? point.y + 37 : cardTop + DESKTOP_CARD_HEIGHT,
+                        height: 29,
+                      }}
+                      aria-hidden="true"
+                    />
 
-                   <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6 group-hover:text-primary transition-colors min-h-[3.5rem] leading-tight">
-                     {exp.name}
-                   </h3>
+                    <div
+                      className="absolute -translate-x-1/2 -translate-y-1/2"
+                      style={{ left: point.x, top: point.y }}
+                    >
+                      <TimelineNode
+                        experience={experience}
+                        active={index === activeIndex}
+                        reached={index <= activeIndex}
+                      />
+                    </div>
 
-                   <ul className="space-y-4 text-foreground/75 text-sm list-none flex-grow">
-                    {exp.description.map((point, i) => (
-                      <li key={i} className="flex gap-3">
-                        <span className="text-primary mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0 shadow-[0_0_8px_rgba(161,161,170,0.6)]" />
-                        <span className="leading-relaxed">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-            
-            {/* Spacer at the end for better scroll feel */}
-            <div className="flex-shrink-0 w-32 md:w-64"></div>
+                    <div
+                      className="absolute"
+                      style={{
+                        left: point.x - DESKTOP_CARD_WIDTH / 2,
+                        top: cardTop,
+                        width: DESKTOP_CARD_WIDTH,
+                        height: DESKTOP_CARD_HEIGHT,
+                      }}
+                    >
+                      <ExperienceCard
+                        experience={experience}
+                        index={index}
+                        activeIndex={activeIndex}
+                        className="h-full"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          <div className="absolute bottom-7 right-8 z-40">
+            <TimelineControls
+              activeIndex={activeIndex}
+              onSelect={scrollToDesktopIndex}
+            />
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="relative overflow-hidden py-20 md:py-24">
+          <div className="dot-grid absolute inset-0 opacity-10" aria-hidden="true" />
 
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </SectionWrapper>
+          <div className="relative z-10 mx-auto mb-10 px-6 text-center">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">
+              From research to production
+            </p>
+            <h2 className="text-4xl font-bold text-primary md:text-5xl">
+              Professional Journey
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              {shouldReduceMotion
+                ? "Use the controls or arrow keys to explore"
+                : "Swipe to follow the path"}
+            </p>
+          </div>
+
+          <div
+            ref={nativeScrollerRef}
+            onScroll={handleNativeScroll}
+            onKeyDown={(event) =>
+              handleTimelineKeyDown(event, scrollToNativeIndex)
+            }
+            tabIndex={0}
+            role="region"
+            aria-label="Scrollable career timeline"
+            className="relative z-10 overflow-x-auto overscroll-x-contain scroll-smooth outline-none [scrollbar-width:none] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/60 [&::-webkit-scrollbar]:hidden"
+          >
+            <div
+              className="relative"
+              style={{
+                width: NATIVE_TRACK_WIDTH,
+                height: NATIVE_TRACK_HEIGHT,
+              }}
+            >
+              <svg
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 overflow-visible"
+                width={NATIVE_TRACK_WIDTH}
+                height={160}
+                viewBox={`0 0 ${NATIVE_TRACK_WIDTH} 160`}
+                fill="none"
+              >
+                <path
+                  d={nativeWavePath}
+                  stroke="rgba(255,255,255,0.11)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <motion.path
+                  d={nativeWavePath}
+                  stroke="rgba(255,255,255,0.88)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  style={{
+                    pathLength: shouldReduceMotion
+                      ? 1
+                      : nativePathProgressSpring,
+                  }}
+                />
+              </svg>
+
+              <div role="list" aria-label="Career experiences">
+                {experiences.map((experience, index) => {
+                  const point = nativePoints[index];
+                  const cardTop = point.y + 82 + (index % 2 === 0 ? 0 : 18);
+
+                  return (
+                    <div
+                      key={experience.id}
+                      role="listitem"
+                      className="absolute snap-center"
+                      style={{
+                        left: point.x - NATIVE_CARD_WIDTH / 2,
+                        top: 0,
+                        width: NATIVE_CARD_WIDTH,
+                        height: NATIVE_TRACK_HEIGHT,
+                        scrollSnapAlign: "center",
+                      }}
+                    >
+                      <div
+                        className="absolute left-1/2 z-10 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-white/30 to-white/5"
+                        style={{ top: point.y + 36 }}
+                        aria-hidden="true"
+                      />
+
+                      <div
+                        className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        style={{ top: point.y }}
+                      >
+                        <TimelineNode
+                          experience={experience}
+                          active={index === activeIndex}
+                          reached={index <= activeIndex}
+                        />
+                      </div>
+
+                      <div
+                        className="absolute left-0"
+                        style={{
+                          top: cardTop,
+                          width: NATIVE_CARD_WIDTH,
+                          height: NATIVE_CARD_HEIGHT,
+                        }}
+                      >
+                        <ExperienceCard
+                          experience={experience}
+                          index={index}
+                          activeIndex={activeIndex}
+                          className="h-full"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative z-20 mt-1 flex justify-center">
+            <TimelineControls
+              activeIndex={activeIndex}
+              onSelect={scrollToNativeIndex}
+            />
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
