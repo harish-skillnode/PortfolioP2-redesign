@@ -99,10 +99,13 @@ body {
   outline-offset: 5px;
 }
 .portfolio-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #ffffff12;
+}
+.portfolio-header > a {
+  justify-self: start;
 }
 .portfolio-header img {
   width: 108px;
@@ -117,13 +120,6 @@ body {
 .header-caption span {
   margin: 0 18px;
   color: #54545c;
-}
-.header-email {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 12px;
-  color: #cacace;
 }
 .portfolio-main {
   display: grid;
@@ -1188,6 +1184,10 @@ body {
     padding: 0 20px;
     grid-template-rows: 54px minmax(0, 1fr) 46px;
   }
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+  }
   .portfolio-header img {
     width: 80px;
   }
@@ -1197,9 +1197,6 @@ body {
   }
   .header-caption span {
     margin: 0 8px;
-  }
-  .header-email {
-    display: none;
   }
   .portfolio-main {
     display: flex;

@@ -645,9 +645,6 @@ export default function HomePage() {
         <span className="header-caption">
           Personal portfolio <span>/</span> 2026
         </span>
-        <a className="header-email" href="mailto:harisheswarathas@gmail.com">
-          Let&apos;s talk <ArrowUpRight size={14} />
-        </a>
       </header>
       <main className="portfolio-main">
         <aside className="profile-sidebar" aria-label="Profile">
