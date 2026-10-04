@@ -506,7 +506,7 @@ function SkillNode() {
           <h3>
             Find the fit
             <br />
-            <span>beyond the résumé.</span>
+            <span>beyond the resume.</span>
           </h3>
           <p className="detail-description">
             Matching people to opportunities through more than a list of
@@ -674,7 +674,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View résumé <ArrowDownToLine size={16} />
+              View resume <ArrowDownToLine size={16} />
             </a>
             <button
               ref={contactButton}

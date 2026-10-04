@@ -145,7 +145,7 @@ export default function SkillNodeSection() {
                     The SkillNode idea
                   </p>
                   <p className="mt-1 text-xs font-medium text-white/55 sm:text-sm">
-                    Find the fit beyond the résumé.
+                    Find the fit beyond the resume.
                   </p>
                 </div>
                 <span className="ml-4 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[#77aaff] transition-colors group-hover:border-[#65a0ff]/40 group-hover:bg-[#3278e6]/10">

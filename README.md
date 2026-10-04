@@ -2,7 +2,7 @@
 
 A single-screen personal portfolio with a persistent profile and tabs for About,
 Experience, Projects, Research, and SkillNode. The original dark palette, logo,
-pixel-art portrait, résumé, publication PDF, links, and portfolio content are retained.
+pixel-art portrait, resume, publication PDF, links, and portfolio content are retained.
 
 ## Development
 
