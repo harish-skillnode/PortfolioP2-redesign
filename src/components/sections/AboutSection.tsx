@@ -49,8 +49,8 @@ export default function AboutSection() {
             <div className="space-y-4 text-lg text-foreground/70 leading-relaxed">
               <p>
                 I&apos;m Sriharish — a Computer Science student at Guelph, a
-                software developer at Criteo, and an HCI researcher. My work
-                moves between production code, AI and creativity studies, and
+                former software development intern at Criteo, and an HCI
+                researcher. My work moves between production code, AI and creativity studies, and
                 a smartwatch project about how an “imperfect” stress avatar
                 becomes a joke, companion, or game.
               </p>
@@ -70,10 +70,10 @@ export default function AboutSection() {
               <div className="grid gap-3 md:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
                   <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-primary/60">
-                    At Criteo
+                    Building
                   </span>
                   <p className="mt-2 text-sm font-semibold leading-5 text-foreground/75">
-                    Ad Validation &amp; Activations
+                    SkillNode · AI compatibility
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">

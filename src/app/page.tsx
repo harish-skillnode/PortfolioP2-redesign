@@ -106,11 +106,11 @@ function About() {
         </p>
         <div className={`about-pages about-page-${page}`}>
           <p className="about-paragraph about-intro">
-            I&apos;m Sriharish — a Computer Science student at Guelph, a
-            software developer at Criteo, and an HCI researcher. My work moves
-            between production code, AI and creativity studies, and a smartwatch
-            project about how an “imperfect” stress avatar becomes a joke,
-            companion, or game.
+            I&apos;m Sriharish — a Computer Science student at Guelph, a former
+            software development intern at Criteo, and an HCI researcher. My
+            work moves between production code, AI and creativity studies, and a
+            smartwatch project about how an “imperfect” stress avatar becomes a
+            joke, companion, or game.
           </p>
           <p className="about-paragraph about-perspective">
             That range is what keeps me curious. I care about what happens after
@@ -125,8 +125,8 @@ function About() {
             </p>
             <p className="eyebrow">What I&apos;m working on now</p>
             <div>
-              <span>01 / At Criteo</span>
-              <p>Ad Validation &amp; Activations</p>
+              <span>01 / Building</span>
+              <p>SkillNode · AI compatibility</p>
             </div>
             <div>
               <span>02 / In the lab</span>

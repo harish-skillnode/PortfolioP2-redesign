@@ -114,11 +114,11 @@ export const experiences: Experience[] = [
     role: "Software Development Engineer",
     company: "Criteo",
     employment: "Internship",
-    date: "May 2026 - Present · 3 mos",
+    date: "May 2026 - Aug 2026 · 4 mos",
     location: "Toronto, Ontario, Canada · Hybrid",
     detail: "Ad Validation & Activations (AVA)",
     bullets: [
-      "Contribute to software development for the Ad Validation & Activations team.",
+      "Contributed to software development for the Ad Validation & Activations team.",
     ],
     logoSrc: "/images/company-logos/criteo-logo.svg",
     logoAlt: "Criteo logo",
