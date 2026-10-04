@@ -65,7 +65,7 @@ export default function AboutSection() {
 
             <div className="border-t border-white/10 pt-6">
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
-                What I&apos;m working on now
+                Areas of focus
               </p>
               <div className="grid gap-3 md:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
@@ -78,7 +78,7 @@ export default function AboutSection() {
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
                   <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-primary/60">
-                    In the lab
+                    Research
                   </span>
                   <p className="mt-2 text-sm font-semibold leading-5 text-foreground/75">
                     AI, creativity &amp; wearable HCI
@@ -89,7 +89,7 @@ export default function AboutSection() {
                     At Guelph
                   </span>
                   <p className="mt-2 text-sm font-semibold leading-5 text-foreground/75">
-                    Teaching UI design &amp; discrete structures
+                    Programming, statistics &amp; discrete structures
                   </p>
                 </div>
               </div>

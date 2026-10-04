@@ -123,18 +123,18 @@ function About() {
               Building high-performance digital experiences and robust systems.
               Final year Computer Science student at the University of Guelph.
             </p>
-            <p className="eyebrow">What I&apos;m working on now</p>
+            <p className="eyebrow">Areas of focus</p>
             <div>
               <span>01 / Building</span>
               <p>SkillNode · AI compatibility</p>
             </div>
             <div>
-              <span>02 / In the lab</span>
+              <span>02 / Research</span>
               <p>AI, creativity &amp; wearable HCI</p>
             </div>
             <div>
               <span>03 / At Guelph</span>
-              <p>Teaching UI design &amp; discrete structures</p>
+              <p>Programming, statistics &amp; discrete structures</p>
             </div>
           </div>
         </div>
@@ -165,7 +165,14 @@ function About() {
 
 function Experience() {
   const [index, setIndex] = useState(experiences.length - 1);
+  const [showAchievements, setShowAchievements] = useState(false);
+  const [achievement, setAchievement] = useState(0);
   const experience = experiences[index];
+  function changeRole(next: number) {
+    setIndex(next);
+    setAchievement(0);
+    setShowAchievements(false);
+  }
   return (
     <div className="section-view">
       <div className="section-heading">
@@ -175,7 +182,9 @@ function Experience() {
             Experience<span className="title-dot">.</span>
           </h2>
         </div>
-        <span className="quiet-count">7 roles / 2025—2026</span>
+        <span className="quiet-count">
+          {experiences.length} roles / 2025—2026
+        </span>
       </div>
       <div className="collection-layout">
         <div className="item-list" aria-label="Choose an experience">
@@ -184,7 +193,7 @@ function Experience() {
             return (
               <button
                 key={item.id}
-                onClick={() => setIndex(itemIndex)}
+                onClick={() => changeRole(itemIndex)}
                 aria-pressed={index === itemIndex}
                 className={index === itemIndex ? "selected" : ""}
               >
@@ -209,7 +218,7 @@ function Experience() {
           <select
             id="experience-select"
             value={index}
-            onChange={(event) => setIndex(Number(event.target.value))}
+            onChange={(event) => changeRole(Number(event.target.value))}
           >
             {[...experiences].reverse().map((item, reverseIndex) => (
               <option
@@ -221,7 +230,27 @@ function Experience() {
             ))}
           </select>
         </div>
-        <article className="detail-card experience-detail">
+        <article
+          className={`detail-card experience-detail ${showAchievements ? "experience-achievements" : ""}`}
+        >
+          <div
+            className="experience-detail-tabs"
+            role="group"
+            aria-label="Experience information"
+          >
+            <button
+              aria-pressed={!showAchievements}
+              onClick={() => setShowAchievements(false)}
+            >
+              Overview
+            </button>
+            <button
+              aria-pressed={showAchievements}
+              onClick={() => setShowAchievements(true)}
+            >
+              Achievements
+            </button>
+          </div>
           <div className="detail-topline">
             <div className={`company-logo logo-${experience.logoPresentation}`}>
               <Image
@@ -236,29 +265,49 @@ function Experience() {
           <div className="detail-body">
             <p className="eyebrow">{experience.company}</p>
             <h3>{experience.role}</h3>
-            <p className="detail-meta">
-              <span className="mobile-employment">
-                {experience.employment} ·{" "}
-              </span>
-              {experience.date}
-              <br />
-              {experience.location}
-            </p>
-            {experience.detail && (
-              <p className="detail-subtitle">{experience.detail}</p>
+            {!showAchievements ? (
+              <>
+                <p className="detail-meta">
+                  <span className="mobile-employment">
+                    {experience.employment} ·{" "}
+                  </span>
+                  {experience.date}
+                  <br />
+                  {experience.location}
+                </p>
+                {experience.detail && (
+                  <p className="detail-subtitle">{experience.detail}</p>
+                )}
+              </>
+            ) : (
+              <div className="experience-achievement">
+                <p className="eyebrow">
+                  Achievement {achievement + 1} of {experience.bullets.length}
+                </p>
+                <p className="experience-achievement-text" aria-live="polite">
+                  {experience.bullets[achievement]}
+                </p>
+                {experience.bullets.length > 1 && (
+                  <Pager
+                    index={achievement}
+                    count={experience.bullets.length}
+                    onChange={setAchievement}
+                    label="achievement"
+                  />
+                )}
+              </div>
             )}
-            <ul className="experience-bullets">
-              {experience.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
-              ))}
-            </ul>
           </div>
           <div className="detail-bottom">
-            <span>Experience</span>
+            {experience.liveUrl ? (
+              <ExternalLink href={experience.liveUrl}>Live site</ExternalLink>
+            ) : (
+              <span>Experience</span>
+            )}
             <Pager
               index={index}
               count={experiences.length}
-              onChange={setIndex}
+              onChange={changeRole}
               label="experience"
             />
           </div>
@@ -500,7 +549,7 @@ function SkillNode() {
           </h2>
         </div>
         <span className="small-badge blue-badge">
-          <span className="status-dot" /> Coming soon
+          <span className="status-dot" /> Live platform
         </span>
         <div className="skillnode-intro">
           <h3>
@@ -532,7 +581,7 @@ function SkillNode() {
         </div>
         <div className="skillnode-actions">
           <ExternalLink href="https://skillnode.ca" className="filled-link">
-            Explore the beta
+            Visit SkillNode
           </ExternalLink>
           <span>skillnode.ca</span>
         </div>

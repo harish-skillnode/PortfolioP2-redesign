@@ -1,8 +1,8 @@
-// Portfolio content retained from the original sections.
+// Shared portfolio content, with experience updated from the latest resume.
 
 type LogoPresentation = "square" | "wordmark" | "permalution";
 
-type Experience = {
+export type Experience = {
   id: string;
   role: string;
   company: string;
@@ -10,6 +10,7 @@ type Experience = {
   date: string;
   location: string;
   detail?: string;
+  liveUrl?: string;
   bullets: string[];
   logoSrc: string;
   logoAlt: string;
@@ -23,43 +24,35 @@ type TimelinePoint = {
 
 export const experiences: Experience[] = [
   {
-    id: "wearable-technology-research",
-    role: "Research Assistant - Wearable Technology HCI",
-    company: "University of Guelph Research",
-    employment: "Contract Full-time",
-    date: "May 2025 - Aug 2025 · 4 mos",
-    location: "Guelph, Ontario, Canada · Hybrid",
+    id: "hci-research",
+    role: "Research Assistant",
+    company: "University of Guelph",
+    employment: "Research",
+    date: "May 2025 - Aug 2026",
+    location: "Guelph, Ontario, Canada",
+    detail: "Human-Computer Interaction, AI & Wearable Technology Research",
     bullets: [
-      "Analyzed and visualized wearable stress-tracking data for an HCI study of user behavior.",
+      "Built an AI-assisted drawing application and designed experiments comparing AI-supported and static creative workflows.",
+      "Analyzed user interaction logs, 18 interviews, and 238 app reviews to identify behavioral and usability patterns.",
+      "Translated qualitative and behavioral findings into interface design recommendations for AI and wearable systems.",
     ],
     logoSrc: "/images/company-logos/RA.png",
-    logoAlt: "University of Guelph Research logo",
+    logoAlt: "University of Guelph logo",
     logoPresentation: "square",
   },
   {
-    id: "ai-creativity-research",
-    role: "Researcher - AI & Creativity HCI",
-    company: "University of Guelph Research",
-    employment: "Contract Part-time",
-    date: "Sep 2025 - Present · 11 mos",
-    location: "Guelph, Ontario, Canada · Remote",
-    bullets: [
-      "Study how AI tools influence human creativity through HCI research and software prototyping.",
-    ],
-    logoSrc: "/images/company-logos/RA.png",
-    logoAlt: "University of Guelph Research logo",
-    logoPresentation: "square",
-  },
-  {
-    id: "teaching-assistant-discrete-structures",
-    role: "Teaching Assistant - Discrete Structures In Computing I",
+    id: "teaching-assistant",
+    role: "Teaching Assistant",
     company: "University of Guelph",
     employment: "Contract Part-time",
-    date: "Sep 2025 - Dec 2025 · 4 mos",
-    location: "Guelph, Ontario, Canada · Hybrid",
-    detail: "CIS*1910 (F25)",
+    date: "Sep 2025 - Dec 2026",
+    location: "Guelph, Ontario, Canada",
+    detail:
+      "Courses: CIS*1910 Discrete Structures (F25, F26); CIS*2170 User Interface Design (W26); ENGG*1410 Introductory Programming for Engineers (F26); STAT*2040 Statistics (F26).",
     bullets: [
-      "Supported Discrete Structures labs, student questions, grading, and course delivery.",
+      "Led weekly Discrete Structures labs for 25+ students, teaching logic, proofs, and algorithmic problem solving.",
+      "Explained technical concepts through examples, guided problem solving, and individualized feedback.",
+      "Supported students across 5 course offerings through labs, tutorials, office hours, grading, and feedback.",
     ],
     logoSrc: "/images/company-logos/RA.png",
     logoAlt: "University of Guelph logo",
@@ -81,29 +74,17 @@ export const experiences: Experience[] = [
     logoPresentation: "square",
   },
   {
-    id: "teaching-assistant-interface-design",
-    role: "Teaching Assistant - User Interface Design",
-    company: "University of Guelph",
-    employment: "Contract Part-time",
-    date: "Jan 2026 - Apr 2026 · 4 mos",
-    location: "Guelph, Ontario, Canada · Hybrid",
-    detail: "CIS*2170 (W26)",
-    bullets: [
-      "Supported User Interface Design labs, student questions, and assignment feedback.",
-    ],
-    logoSrc: "/images/company-logos/RA.png",
-    logoAlt: "University of Guelph logo",
-    logoPresentation: "square",
-  },
-  {
     id: "permalution",
-    role: "User Experience Designer",
+    role: "User Experience Researcher",
     company: "Permalution",
-    employment: "Internship",
-    date: "Mar 2026 - May 2026 · 3 mos",
+    employment: "Contract Part-time",
+    date: "Mar 2026 - May 2026",
     location: "Remote",
+    detail: "Climate Technology Company",
     bullets: [
-      "Used UX research and user-behavior insights to improve product workflows and interface decisions.",
+      "Collaborated with a team to redesign Permalution’s website using Claude-assisted design workflows.",
+      "Evaluated usability, accessibility, and navigation across key website flows, translating findings into actionable UX improvements.",
+      "Produced wireframes and interface recommendations that aligned product messaging, user needs, and climate-technology use cases.",
     ],
     logoSrc: "/images/company-logos/permalution-logo.png",
     logoAlt: "Permalution water droplet logo",
@@ -111,18 +92,39 @@ export const experiences: Experience[] = [
   },
   {
     id: "criteo",
-    role: "Software Development Engineer",
+    role: "Software Development Engineer Intern",
     company: "Criteo",
     employment: "Internship",
-    date: "May 2026 - Aug 2026 · 4 mos",
+    date: "May 2026 - Aug 2026",
     location: "Toronto, Ontario, Canada · Hybrid",
-    detail: "Ad Validation & Activations (AVA)",
+    detail: "Ad Validation & Activation, Retail Media R&D",
     bullets: [
-      "Contributed to software development for the Ad Validation & Activations team.",
+      "Improved a core budget service by removing unnecessary lookups, boosting edge-case performance by ~60%.",
+      "Led a cross-team approval-tracking project across 3 systems, coordinating 10 sub-tasks and 2 code reviews with zero issues.",
+      "Designed the activity-log architecture by extending an existing data structure, earning approval from 2 engineering teams.",
+      "Simplified an approval workflow by cutting rejection clicks by ~50% and retiring 6 outdated feature flags.",
     ],
     logoSrc: "/images/company-logos/criteo-logo.svg",
     logoAlt: "Criteo logo",
     logoPresentation: "wordmark",
+  },
+  {
+    id: "skillnode",
+    role: "Founder & Technical Lead",
+    company: "SkillNode",
+    employment: "Entrepreneurial",
+    date: "Ongoing",
+    location: "skillnode.ca",
+    detail: "AI Career Development Platform",
+    liveUrl: "https://skillnode.ca/",
+    bullets: [
+      "Architected and deployed an AI career platform with Next.js, Firebase, and AI APIs, generating tailored documents in 1-2 minutes.",
+      "Built evaluation workflows across 30 test cases, 210 renders, and 120 AI outputs to validate layout and generation consistency.",
+      "Optimized prompt pipelines, model selection, and API usage to reduce inference costs while maintaining 95%+ gross margins.",
+    ],
+    logoSrc: "/images/project-logos/skillnode-logo.png",
+    logoAlt: "SkillNode logo",
+    logoPresentation: "square",
   },
 ];
 

@@ -24,7 +24,7 @@ export default function SkillNodeSection() {
             <div className="mb-7 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#4b8bf4]/30 bg-[#3278e6]/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#8ab5ff]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#65a0ff] shadow-[0_0_10px_#65a0ff]" />
-                Coming soon
+                Live platform
               </span>
               <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
                 A project I&apos;m building
@@ -63,9 +63,9 @@ export default function SkillNodeSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#65a0ff] focus-visible:ring-offset-4 focus-visible:ring-offset-background motion-reduce:transition-none"
-                aria-label="Explore SkillNode beta access in a new tab"
+                aria-label="Visit SkillNode in a new tab"
               >
-                Explore the beta
+                Visit SkillNode
                 <ArrowUpRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"
                   aria-hidden="true"
